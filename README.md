@@ -8,6 +8,22 @@ This program uses:
 - RepeatMasker Data (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)
 - UCSC Chromosome Sizes Data (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes)
 
+This program generates the following output:
+## a) Labels:
+
+Label | Definition
+:---: | :---:
+Exon | Intragenic stretch of DNA sequence, including non-coding untranslated regions, that can synthesize a functional RNA molecule, including mRNAs and ncRNAs.
+Intron |  Intragenic stretch of non-coding DNA sequence located between two successive exons.
+Intergenic |  Stretch of non-coding DNA sequence located between the two successive genes.
+Coding | Exonic stretch of DNA sequence that can synthesize a functional protein.
+Noncoding | Exonic stretch of DNA sequence that appears twofold: *(1)* as regulatory untranslated regions of mRNAs or *(2)* as translated regions of ncRNAs.
+Promoter | CAGE-defined core promoter regions.
+LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA polymerase II promoter.
+SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.
+Alu | Most common SINE element, which is highly conserved and often implicated in disease.
+
+
 # Scripts:
 ## 1) *makeLabels.pl*
 - Command line argument(s): Input region in the format **chr:start-stop**
@@ -21,7 +37,7 @@ This program uses:
 ## 4) *makeHubs.pl*
 - Command line argument(s):
   - Input region in the format **chr:start-stop**
-  - Path to the UCSC utility **bedToBigBed** in the format **/path/**bedToBigBed. If you are unsure, you can run the following command:
+  - Path to the UCSC utility **bedToBigBed** in the format **/path/bedToBigBed**. If you are unsure where this file lies, you can run the following command:
   
   ``` bash
   find / -type f -name "bedToBigBed" 2>/dev/null

@@ -5,7 +5,8 @@ Create genomic labels to help identify candidate cis-regulatory regions.
 Annotating the genome can be broken down into two steps:
 
 **1) Structural Annotation -** Identifying elements in the genome (i.e. exons, introns, UTRs, CDSs, etc.)
-**2) Functional Annotation -** Attaching biological information to the elements in the genome (e.g. the protein for which an exon codes)
+
+**2) Functional Annotation -** Attaching biological information to the elements in the genome (e.g. biochemical product, regulatory role, etc.)
 
 # Data:
 This program uses:

@@ -1,6 +1,12 @@
 # genomeLabel
 Create genomic labels to help identify candidate cis-regulatory regions.
 
+## Genome Annonation:
+Annotating the genome can be broken down into two steps:
+
+**1) Structural Annotation -** Identifying elements in the genome (i.e. exons, introns, UTRs, CDSs, etc.)
+**2) Functional Annotation -** Attaching biological information to the elements in the genome (e.g. the protein for which an exon codes)
+
 # Data:
 This program uses:
 - NCBI RefSeq Curated Data (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/genes/hg38.ncbiRefSeq.gtf.gz)

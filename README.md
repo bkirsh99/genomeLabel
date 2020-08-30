@@ -12,13 +12,16 @@ This program uses:
 ## 1) *makeLabels.pl*
 - Command line argument(s): Input region in the format **chr:start-stop**
 
-## 2) *makeTracks.pl*
+## 2) *getStats.pl*
 - Command line argument(s): Input region in the format **chr:start-stop**
 
-## 3) *makeHubs.pl*
+## 3) *makeTracks.pl*
+- Command line argument(s): Input region in the format **chr:start-stop**
+
+## 4) *makeHubs.pl*
 - Command line argument(s):
   - Input region in the format **chr:start-stop**
-  - Path to the UCSC utility **bedToBigBed** in the format **/path/to/utilities/**. If you are unsure, you can run the following command:
+  - Path to the UCSC utility **bedToBigBed** in the format **/path/**bedToBigBed. If you are unsure, you can run the following command:
   
   ``` bash
   find / -type f -name "bedToBigBed" 2>/dev/null

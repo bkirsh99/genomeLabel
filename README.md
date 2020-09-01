@@ -30,6 +30,10 @@ LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA p
 SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.
 Alu | Most common SINE element, which is highly conserved and often implicated in disease.
 
+In order of priority,
+
+**EXON** (**CDS** > **exon** > **UTR**) > **INTRON** > **INTERGENIC**
+
 #### Examples:
 ![Image of Labelling Priority](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
 

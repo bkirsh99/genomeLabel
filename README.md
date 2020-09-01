@@ -32,16 +32,32 @@ Alu | Most common SINE element, which is highly conserved and often implicated i
 
 
 # Scripts:
-## 1) *makeLabels.pl*
+## 1) *run.pl*
+- Command line argument(s):
+  - Input region in the format **chr:start-stop**
+- Output(s): 
+
+Directory | Contents
+:---: | :---:
+data | Data used to generate labels and tracks for *all regions* (i.e. raw NCBI RefSeq, FANTOM5, RepeatMasker, and UCSC data)
+out | Regional directories created for each *input region* in the format **chr:start-stop**
+out/chr:start-stop | Regional subdirectories and summary file created for each *input region*
+out/chr:start-stop/dataFiles | Data used to generate labels and tracks for *input region* (i.e. filtered NCBI RefSeq, FANTOM5, RepeatMasker, and UCSC data)
+out/chr:start-stop/labelFiles | Labels created for each feature in the *input region* (i.e. exon, intron, coding, etc.)
+out/chr:start-stop/trackFiles | Tracks created for different combinations of features in the *input region* (i.e. genomic, repetitive elements, etc.)
+out/chr:start-stop/summary.txt | File created for summary statistics in the *input region* (e.g. coverage and average)
+
+
+## 2) *makeLabels.pl*
 - Command line argument(s): Input region in the format **chr:start-stop**
 
-## 2) *getStats.pl*
+## 3) *getStats.pl*
 - Command line argument(s): Input region in the format **chr:start-stop**
 
-## 3) *makeTracks.pl*
+## 4) *makeTracks.pl*
 - Command line argument(s): Input region in the format **chr:start-stop**
 
-## 4) *makeHubs.pl*
+## 5) *makeHubs.pl*
 - Command line argument(s):
   - Input region in the format **chr:start-stop**
   - Path to the UCSC utility **bedToBigBed** in the format **/path/bedToBigBed**. If you are unsure where this file lies, you can run the following command:

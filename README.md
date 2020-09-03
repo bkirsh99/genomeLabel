@@ -40,25 +40,25 @@ This program takes in annotation data from genomic databases as input to generat
 
 <center>
   
-INPUT | OUTPUT
-:--: | :--:
-[NCBI RefSeq Curated Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/genes/hg38.ncbiRefSeq.gtf.gz)|exon, intron, coding, noncoding, intergenic
-[UCSC Chromosome Sizes Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes)|intergenic
-[FANTOM5 Promoter Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks/hg38_fair+new_CAGE_peaks_phase1and2.bed.gz)|promoter
-[FANTOM5 Enhancer Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/enhancer/F5.hg38.enhancers.bed.gz)|enhancer (*active, transcribed in-vivo*)
-[RepeatMasker Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)|LINE, SINE, Alu
+|INPUT | OUTPUT|
+|:--: | :--:|
+|[NCBI RefSeq Curated Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/genes/hg38.ncbiRefSeq.gtf.gz)|exon, intron, coding, noncoding, intergenic|
+|[UCSC Chromosome Sizes Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes)|intergenic|
+|[FANTOM5 Promoter Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks/hg38_fair+new_CAGE_peaks_phase1and2.bed.gz)|promoter|
+|[FANTOM5 Enhancer Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/enhancer/F5.hg38.enhancers.bed.gz)|enhancer (*active, transcribed in-vivo*)|
+|[RepeatMasker Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)|LINE, SINE, Alu|
 
-Label | Definition
-:---: | :---:
-Exon | Intragenic stretch of DNA sequence, including non-coding untranslated regions, that can synthesize a functional RNA molecule, including mRNAs and ncRNAs.
-Intron |  Intragenic stretch of non-coding DNA sequence located between two successive exons.
-Intergenic |  Stretch of non-coding DNA sequence located between the two successive genes.
-Coding | Exonic stretch of DNA sequence that can synthesize a functional protein.
-Noncoding | Exonic stretch of DNA sequence that appears twofold: *(1)* as regulatory untranslated regions of mRNAs or *(2)* as translated regions of ncRNAs.
-Promoter | CAGE-defined core promoter regions.
-LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA polymerase II promoter.
-SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.
-Alu | Most common SINE element, which is highly conserved and often implicated in disease.
+|Label | Definition|
+|:---: | :---:|
+|Exon | Intragenic stretch of DNA sequence, including non-coding untranslated regions, that can synthesize a functional RNA molecule, including mRNAs and ncRNAs.|
+|Intron |  Intragenic stretch of non-coding DNA sequence located between two successive exons.|
+|Intergenic |  Stretch of non-coding DNA sequence located between the two successive genes.|
+|Coding | Exonic stretch of DNA sequence that can synthesize a functional protein.|
+|Noncoding | Exonic stretch of DNA sequence that appears twofold: *(1)* as regulatory untranslated regions of mRNAs or *(2)* as translated regions of ncRNAs.|
+|Promoter | CAGE-defined core promoter regions.|
+|LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA polymerase II promoter.|
+|SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.|
+|Alu | Most common SINE element, which is highly conserved and often implicated in disease.|
 
 </center>
 

@@ -37,8 +37,6 @@ Annotating the genome can be broken down into three main steps: (1) identifying 
 Data:
 ------
 This program takes in annotation data from genomic databases as input to generate custom label tracks.
-
-<center>
   
 |INPUT | OUTPUT|
 |:--: | :--:|
@@ -59,8 +57,11 @@ This program takes in annotation data from genomic databases as input to generat
 |LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA polymerase II promoter.|
 |SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.|
 |Alu | Most common SINE element, which is highly conserved and often implicated in disease.|
+|Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.|
 
-</center>
+**Note:** In order of classification priority, we have:
+
+->**EXON** (**CDS** > **exon** > **UTR**) > **INTRON** > **INTERGENIC**<-
 
 Installation
 ======
@@ -97,21 +98,10 @@ chmod +x ./script.pl
 Running genomeLabel
 ======
 
-
-This program generates the following output:
-## a) Labels:
-
-
-Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.
-
-In order of priority,
-
-**EXON** (**CDS** > **exon** > **UTR**) > **INTRON** > **INTERGENIC**
-
-#### Examples:
-![Image of Labelling Priority](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
-
-# Structure:
+Output of genomeLabel
+======
+Example Directory Tree:
+------
 
 ``` bash
 .
@@ -165,6 +155,10 @@ In order of priority,
 ├── makeTracks.pl
 └── run.pl
 ```
+Example Data Tracks:
+------
+![Image of Labelling Priority](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
+
 - **Directory Content:*
 
 # Scripts:

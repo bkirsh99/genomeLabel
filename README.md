@@ -38,6 +38,8 @@ Data:
 ------
 This program takes in annotation data from genomic databases as input to generate custom label tracks.
 
+<center>
+  
 INPUT | OUTPUT
 :--: | :--:
 [NCBI RefSeq Curated Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/genes/hg38.ncbiRefSeq.gtf.gz)|exon, intron, coding, noncoding, intergenic
@@ -57,6 +59,8 @@ Promoter | CAGE-defined core promoter regions.
 LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA polymerase II promoter.
 SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.
 Alu | Most common SINE element, which is highly conserved and often implicated in disease.
+
+</center>
 
 Installation
 ======

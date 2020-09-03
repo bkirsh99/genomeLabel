@@ -13,10 +13,6 @@ Contents
   - [genomeLabel](#genomelabel)
 - [Running genomeLabel](#running-genomelabel)
   - [run.pl](#run.pl)
-  - [makeLabels.pl](#makelabels.pl)
-  - [getStats.pl](#getstats.pl)
-  - [makeTracks.pl](#maketracks.pl)
-  - [makeHubs.pl](#makehubs.pl)
 - [Output of genomeLabel](#output-of-genomelabel)
   - [Example Directory Tree](#example-directory-tree)
     - [Directory Contents](#directory-contents)
@@ -119,6 +115,11 @@ This program contains 5 perl scripts and must be initialized by running **run.pl
 |*getStats.pl*|input_region|All files in **./out/chr:start-stop/intersectFiles**, as well as **./out/chr:start-stop/summary.txt**|*makeTracks.pl* to extract relevant track metrics|
 |*makeHubs.pl*|input_region UCSC_path email|All files in **./hubs/myHub_chr:start-stop**|*makeTracks.pl* to compile all tracks into a hub|
 
+run.pl
+------
+This script can make calls to all other scripts and generate labels, tracks, summary statistics, and data hubs. It prompts the user for each of these subroutines with a (Y/N) question. 
+It can be the only script used every time the program is run, or the user may choose to run subroutines individually depending on their desired output. Either way, it must be the first script that is ran to initialize the genomeLabel tool.
+
 Output of genomeLabel
 ======
 Example Directory Tree:
@@ -187,13 +188,14 @@ Example Directory Tree:
 |out/chr:start-stop/dataFiles | Data used to generate labels and tracks for *input region* (i.e. filtered NCBI RefSeq, FANTOM5, RepeatMasker, and UCSC data)|
 |out/chr:start-stop/labelFiles | Labels created for each feature in the *input region* (i.e. exon, intron, coding, etc.)|
 |out/chr:start-stop/trackFiles | Tracks created for different combinations of features in the *input region* (i.e. genomic, repetitive elements, etc.)|
+|out/chr:start-stop/intersectFiles | Files created to compute the overlap between different features in the *input region* (e.g. percent distribution of Alu elements in intronic vs. intergenic regions)|
 |out/chr:start-stop/summary.txt | File created for summary statistics in the *input region* (e.g. coverage and average)|
+|hubs/myHub_chr:start-stop | Track hub created to store *all* tracks generated for the *input region*|
 
 Example Data Tracks:
 ------
 ![Image of Labelling Priority](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
 
-
-*Inspired by:*
+*This tool was inspired by:*
 - **davetang/defining_genomic_regions:** https://github.com/davetang/defining_genomic_regions
 - **cschlaffner/TrackHubGenerator:**  https://github.com/cschlaffner/TrackHubGenerator

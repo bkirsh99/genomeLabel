@@ -41,7 +41,7 @@ genomeLabel contains different perl scripts that require bedtools and [UCSC util
 
 Quick Start
 ------
-## Install perl and perl modules:
+## Install perl and required perl modules:
 ```bash
 sudo apt-get install perl
 ```
@@ -52,7 +52,12 @@ cd bedtools2
 make clean && make all
 ```
 ## Clone repository:
+```bash
+git clone https://github.com/bkirsh99/genomeLabel.git
+```
 
+genomeLabel
+------
 
 
 ## Data:

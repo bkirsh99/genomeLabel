@@ -12,6 +12,7 @@ Annotating the genome can be broken down into two steps:
 This program uses:
 - NCBI RefSeq Curated Data (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/genes/hg38.ncbiRefSeq.gtf.gz)
 - FANTOM5 Promoter Data (https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks/hg38_fair+new_CAGE_peaks_phase1and2.bed.gz)
+- FANTOM5 Enhancer Data (https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/enhancer/F5.hg38.enhancers.bed.gz) - **Active, in-vivo transcribed enhancers**
 - RepeatMasker Data (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)
 - UCSC Chromosome Sizes Data (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes)
 
@@ -29,6 +30,7 @@ Promoter | CAGE-defined core promoter regions.
 LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA polymerase II promoter.
 SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.
 Alu | Most common SINE element, which is highly conserved and often implicated in disease.
+Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.
 
 In order of priority,
 

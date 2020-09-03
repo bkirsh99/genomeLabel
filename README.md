@@ -111,8 +111,8 @@ This program contains 5 perl scripts and must be initialized by running **run.pl
   find / -type f -name "bedToBigBed" 2>/dev/null
   ```
 
-|Script|Argument(s)|Output(s)|Requirement(s)
-|:---:|:---:|:---:|
+|Script|Argument(s)|Output(s)|Requirement(s)|
+|:---:|:---:|:---:|:---:|
 |*run.pl*|input_region|At minimum all files in **./data** and **./out/chr:start-stop/dataFiles**|NA|
 |*makeLabels.pl*|input_region|All files in **./out/chr:start-stop/labelFiles**|*run.pl* to download and filter basic input data|
 |*makeTracks.pl*|input_region|All files in **./out/chr:start-stop/trackFiles**|*makeLabels.pl* to combine labels into tracks|

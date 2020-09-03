@@ -39,6 +39,62 @@ In order of priority,
 #### Examples:
 ![Image of Labelling Priority](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
 
+# Structure:
+
+``` bash
+.
+├── data
+│   ├── hg38.chrom.sizes
+│   ├── hg38.ncbiRefSeq.gtf.gz
+│   ├── hg38_fair+new_CAGE_peaks_phase1and2.bed.gz
+│   └── rmsk.txt.gz
+├── hubs
+│   └── myHub_chrX:15200000-15800000
+│       ├── hg38
+│       │   ├── codingTrack.bb
+│       │   ├── genomicCodingTrack.bb
+│       │   ├── genomicTrack.bb
+│       │   ├── promoterTrack.bb
+│       │   ├── repeatTrack.bb
+│       │   └── trackDb.txt
+│       ├── genomes.txt
+│       └── hub.txt
+├── out
+│   └── chrX:15200000-15800000
+│       ├── dataFiles
+│       │   ├── hg38.chrom.sizes
+│       │   ├── hg38.ncbiRefSeq.gtf.gz
+│       │   ├── hg38_fair+new_CAGE_peaks_phase1and2.bed.gz
+│       │   └── rmsk.txt.gz
+│       ├── intersectFiles
+│       │   ├── Alu.bed.gz
+│       │   ├── LINE.bed.gz
+│       │   └── SINE.bed.gz
+│       ├── labelFiles
+│       │   ├── Alu.bed.gz
+│       │   ├── LINE.bed.gz
+│       │   ├── SINE.bed.gz
+│       │   ├── coding.bed.gz
+│       │   ├── exon.bed.gz
+│       │   ├── intergenic.bed.gz
+│       │   ├── intron.bed.gz
+│       │   ├── noncoding.bed.gz
+│       │   └── promoter.bed.gz
+│       ├── trackFiles
+│       │   ├── codingTrack.bed
+│       │   ├── genomicCodingTrack.bed
+│       │   ├── genomicTrack.bed
+│       │   ├── promoterTrack.bed
+│       │   └── repeatTrack.bed
+│       └── summary.txt
+├── getStats.pl
+├── makeHubs.pl
+├── makeLabels.pl
+├── makeTracks.pl
+└── run.pl
+```
+
+
 # Scripts:
 ## 1) *run.pl*
 - Command line argument(s):

@@ -58,7 +58,11 @@ git clone https://github.com/bkirsh99/genomeLabel.git
 
 genomeLabel
 ------
-
+To run the scripts from the genomeLabel directly:
+```bash
+chmod +x ./script.pl
+$ ./script.pl [ARGS]
+```
 
 ## Data:
 This program uses:

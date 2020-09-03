@@ -41,6 +41,10 @@ genomeLabel contains different perl scripts that require bedtools and [UCSC util
 
 Quick Start
 ------
+## Install perl and perl modules:
+```bash
+sudo apt-get install perl
+```
 ## Install bedtools:
 ```bash
 git clone https://github.com/arq5x/bedtools2.git

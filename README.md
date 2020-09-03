@@ -15,7 +15,16 @@ Contents
   - [Example Directory Tree](#example-directory-tree)
   - [Example Data Tracks](#example-data-tracks)
 
-## Background:
+What is genomeLabel?
+======
+**genomeLabel** is a command line tool for the fully automatic generation of genomic label data that can be summarized into statistically relevant information and visualized in a genome browser.
+The labels annotate the genome both structurally and functionally, revealing insights into potential regulatory roles of certain regions.
+
+genomeLabel is implemented in **perl** and automatically executes tools provided by bedtools and UCSC to annotate the Genome Reference Consortium Human Build 38 (**hg38**) assembly.  
+
+For display by the UCSC Genome Browser, assembly hubs need to be hosted on a publicly accessible web server.
+Background:
+------
 ### Genome Annonation:
 Annotating the genome can be broken down into two steps:
 **1) Structural Annotation -** Identifying elements in the genome (i.e. exons, introns, UTRs, CDSs, etc.)

@@ -1,14 +1,30 @@
 # genomeLabel
+## User Guide
 Create genomic labels to help identify candidate cis-regulatory regions.
 
-## Genome Annonation:
+Contents
+======
+- [What is genomeLabel?](#what-is-genomelabel)
+  - [Background](#background)
+- [Installation](#installation)
+  - [Quick Start](#quick-start)
+  - [Dependencies](#dependencies)
+  - [genomeLabel](#genomelabel)
+- [Running genomeLabel](#running-genomelabel)
+- [Output of genomeLabel](#output-of-genomelabel)
+  - [Example Directory Tree](#example-directory-tree)
+  - [Example Data Tracks](#example-data-tracks)
+
+## Background:
+### Genome Annonation:
 Annotating the genome can be broken down into two steps:
-
 **1) Structural Annotation -** Identifying elements in the genome (i.e. exons, introns, UTRs, CDSs, etc.)
-
 **2) Functional Annotation -** Attaching biological information to the elements in the genome (e.g. biochemical product, regulatory role, expression, etc.)
 
-# Data:
+## Instructions:
+
+
+## Data:
 This program uses:
 - NCBI RefSeq Curated Data (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/genes/hg38.ncbiRefSeq.gtf.gz)
 - FANTOM5 Promoter Data (https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks/hg38_fair+new_CAGE_peaks_phase1and2.bed.gz)
@@ -93,7 +109,7 @@ In order of priority,
 ├── makeTracks.pl
 └── run.pl
 ```
-
+- **Directory Content:*
 
 # Scripts:
 ## 1) *run.pl*

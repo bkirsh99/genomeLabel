@@ -26,16 +26,27 @@ For display by the UCSC Genome Browser, assembly hubs need to be hosted on a pub
 
 Background:
 ------
-### Genome Annonation:
+## Genome Annonation:
 Annotating the genome can be broken down into three main steps: (1) identifying portions of the genome that do not code for proteins, (2) identifying elements on the genome, a process called *gene prediction*, and (3) attaching biological information to these elements. This yields two types of annotation:
 
 **1) Structural Annotation -** Identifying elements in the genome (i.e. exons, introns, UTRs, CDSs, etc.)
 
 **2) Functional Annotation -** Attaching biological information to the elements in the genome (e.g. biochemical product, regulatory role, expression, etc.)
 
+Installation
+======
+Quick Start
+------
+genomeLabel contains different perl scripts that require bedtools and [UCSC utilities](http://hgdownload.soe.ucsc.edu/admin/exe).
 
+## Install bedtools:
+```bash
+git clone https://github.com/arq5x/bedtools2.git
+cd bedtools2
+make clean && make all
+```
+## Clone repository:
 
-## Instructions:
 
 
 ## Data:

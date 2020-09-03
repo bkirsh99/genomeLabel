@@ -12,8 +12,14 @@ Contents
   - [Quick Start](#quick-start)
   - [genomeLabel](#genomelabel)
 - [Running genomeLabel](#running-genomelabel)
+  - [run.pl](#run.pl)
+  - [makeLabels.pl](#makelabels.pl)
+  - [getStats.pl](#getstats.pl)
+  - [makeTracks.pl](#maketracks.pl)
+  - [makeHubs.pl](#makehubs.pl)
 - [Output of genomeLabel](#output-of-genomelabel)
   - [Example Directory Tree](#example-directory-tree)
+    - [Directory Contents](#directory-contents)
   - [Example Data Tracks](#example-data-tracks)
 
 What is genomeLabel?
@@ -97,6 +103,20 @@ chmod +x ./script.pl
 
 Running genomeLabel
 ======
+This program contains 5 perl scripts and must be initialized by running **run.pl**. 
+- If a script requires an input region as a commandd line argument, it must be provided in the format **chr:start-stop**.
+- If a script requires the path to a UCSC utility (i.e. **bedToBigBed**), it must be provided in the format **/path/bedToBigBed**. If you are unsure where this file lies, you can run the following command:
+  ``` bash
+  find / -type f -name "bedToBigBed" 2>/dev/null
+  ```
+
+|Script|Argument(s)|Output(s)|Requirement(s)
+|:---:|:---:|:---:|
+|*run.pl*|input_region|At minimum all files in **./data** and **./out/chr:start-stop/dataFiles**|NA|
+|*makeLabels.pl*|input_region|All files in **./out/chr:start-stop/labelFiles**|*run.pl* to download and filter basic input data|
+|*makeTracks.pl*|input_region|All files in **./out/chr:start-stop/trackFiles**|*makeLabels.pl* to combine labels into tracks|
+|*getStats.pl*|input_region|All files in **./out/chr:start-stop/intersectFiles**, as well as **./out/chr:start-stop/summary.txt**|*makeTracks.pl* to extract relevant track metrics|
+|*makeHubs.pl*|input_region UCSC_path email|All files in **./hubs/myHub_chr:start-stop**|*makeTracks.pl* to compile all tracks into a hub|
 
 Output of genomeLabel
 ======
@@ -155,47 +175,22 @@ Example Directory Tree:
 ├── makeTracks.pl
 └── run.pl
 ```
+### Directory Contents
+**********
+
+|Directory | Contents|
+|:---: | :---:|
+|data | Data used to generate labels and tracks for *all regions* (i.e. raw NCBI RefSeq, FANTOM5, RepeatMasker, and UCSC data)|
+|out | Regional directories created for each *input region* in the format **chr:start-stop**|
+|out/chr:start-stop | Regional subdirectories and summary file created for each *input region*|
+|out/chr:start-stop/dataFiles | Data used to generate labels and tracks for *input region* (i.e. filtered NCBI RefSeq, FANTOM5, RepeatMasker, and UCSC data)|
+|out/chr:start-stop/labelFiles | Labels created for each feature in the *input region* (i.e. exon, intron, coding, etc.)|
+|out/chr:start-stop/trackFiles | Tracks created for different combinations of features in the *input region* (i.e. genomic, repetitive elements, etc.)|
+|out/chr:start-stop/summary.txt | File created for summary statistics in the *input region* (e.g. coverage and average)|
+
 Example Data Tracks:
 ------
 ![Image of Labelling Priority](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
-
-- **Directory Content:*
-
-# Scripts:
-## 1) *run.pl*
-- Command line argument(s):
-  - Input region in the format **chr:start-stop**
-- Output(s): 
-
-Directory | Contents
-:---: | :---:
-data | Data used to generate labels and tracks for *all regions* (i.e. raw NCBI RefSeq, FANTOM5, RepeatMasker, and UCSC data)
-out | Regional directories created for each *input region* in the format **chr:start-stop**
-out/chr:start-stop | Regional subdirectories and summary file created for each *input region*
-out/chr:start-stop/dataFiles | Data used to generate labels and tracks for *input region* (i.e. filtered NCBI RefSeq, FANTOM5, RepeatMasker, and UCSC data)
-out/chr:start-stop/labelFiles | Labels created for each feature in the *input region* (i.e. exon, intron, coding, etc.)
-out/chr:start-stop/trackFiles | Tracks created for different combinations of features in the *input region* (i.e. genomic, repetitive elements, etc.)
-out/chr:start-stop/summary.txt | File created for summary statistics in the *input region* (e.g. coverage and average)
-
-
-## 2) *makeLabels.pl*
-- Command line argument(s): Input region in the format **chr:start-stop**
-
-## 3) *getStats.pl*
-- Command line argument(s): Input region in the format **chr:start-stop**
-
-## 4) *makeTracks.pl*
-- Command line argument(s): Input region in the format **chr:start-stop**
-
-## 5) *makeHubs.pl*
-- Command line argument(s):
-  - Input region in the format **chr:start-stop**
-  - Path to the UCSC utility **bedToBigBed** in the format **/path/bedToBigBed**. If you are unsure where this file lies, you can run the following command:
-  
-  ``` bash
-  find / -type f -name "bedToBigBed" 2>/dev/null
-  ```
-
 
 
 *Inspired by:*

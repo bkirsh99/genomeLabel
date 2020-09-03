@@ -7,8 +7,8 @@ Contents
 - [What is genomeLabel?](#what-is-genomelabel)
   - [Background](#background)
 - [Installation](#installation)
-  - [Quick Start](#quick-start)
   - [Dependencies](#dependencies)
+  - [Quick Start](#quick-start)
   - [genomeLabel](#genomelabel)
 - [Running genomeLabel](#running-genomelabel)
 - [Output of genomeLabel](#output-of-genomelabel)
@@ -35,10 +35,12 @@ Annotating the genome can be broken down into three main steps: (1) identifying 
 
 Installation
 ======
-Quick Start
+Dependencies
 ------
 genomeLabel contains different perl scripts that require bedtools and [UCSC utilities](http://hgdownload.soe.ucsc.edu/admin/exe).
 
+Quick Start
+------
 ## Install bedtools:
 ```bash
 git clone https://github.com/arq5x/bedtools2.git

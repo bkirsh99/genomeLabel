@@ -6,6 +6,7 @@ Contents
 ======
 - [What is genomeLabel?](#what-is-genomelabel)
   - [Background](#background)
+  - [Data](#data)
 - [Installation](#installation)
   - [Dependencies](#dependencies)
   - [Quick Start](#quick-start)
@@ -33,47 +34,17 @@ Annotating the genome can be broken down into three main steps: (1) identifying 
 
 **2) Functional Annotation -** Attaching biological information to the elements in the genome (e.g. biochemical product, regulatory role, expression, etc.)
 
-Installation
-======
-Dependencies
+Data:
 ------
-genomeLabel contains different perl scripts that require bedtools and [UCSC utilities](http://hgdownload.soe.ucsc.edu/admin/exe).
+This program takes in annotation data from genomic databases as input to generate custom label tracks.
 
-Quick Start
-------
-## Install perl and required perl modules:
-```bash
-sudo apt-get install perl
-```
-## Install bedtools:
-```bash
-git clone https://github.com/arq5x/bedtools2.git
-cd bedtools2
-make clean && make all
-```
-## Clone repository:
-```bash
-git clone https://github.com/bkirsh99/genomeLabel.git
-```
-
-genomeLabel
-------
-To run the scripts from the genomeLabel directly:
-```bash
-chmod +x ./script.pl
-$ ./script.pl [ARGS]
-```
-
-## Data:
-This program uses:
-- NCBI RefSeq Curated Data (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/genes/hg38.ncbiRefSeq.gtf.gz)
-- FANTOM5 Promoter Data (https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks/hg38_fair+new_CAGE_peaks_phase1and2.bed.gz)
-- FANTOM5 Enhancer Data (https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/enhancer/F5.hg38.enhancers.bed.gz) - **Active, in-vivo transcribed enhancers**
-- RepeatMasker Data (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)
-- UCSC Chromosome Sizes Data (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes)
-
-This program generates the following output:
-## a) Labels:
+INPUT | OUTPUT
+:--: | :--:
+[NCBI RefSeq Curated Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/genes/hg38.ncbiRefSeq.gtf.gz)|exon, intron, coding, noncoding, intergenic
+[UCSC Chromosome Sizes Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes)|intergenic
+[FANTOM5 Promoter Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks/hg38_fair+new_CAGE_peaks_phase1and2.bed.gz)|promoter
+[FANTOM5 Enhancer Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/enhancer/F5.hg38.enhancers.bed.gz)|enhancer (*active, transcribed in-vivo*)
+[RepeatMasker Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)|LINE, SINE, Alu
 
 Label | Definition
 :---: | :---:
@@ -86,6 +57,47 @@ Promoter | CAGE-defined core promoter regions.
 LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA polymerase II promoter.
 SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.
 Alu | Most common SINE element, which is highly conserved and often implicated in disease.
+
+Installation
+======
+Dependencies:
+------
+genomeLabel contains different perl scripts that require bedtools and [UCSC utilities](http://hgdownload.soe.ucsc.edu/admin/exe).
+
+Quick Start:
+------
+## Install perl and required perl modules
+```bash
+sudo apt-get install perl
+```
+## Install bedtools
+```bash
+git clone https://github.com/arq5x/bedtools2.git
+cd bedtools2
+make clean && make all
+```
+## Clone repository
+```bash
+git clone https://github.com/bkirsh99/genomeLabel.git
+```
+
+genomeLabel:
+------
+To initialize the program with all the necessary data files, *run.pl* must be the first script to be run. After that, standalone scripts can be used for either the same or different input regions.
+To run any script from the genomeLabel directory, simply enter:
+```bash
+chmod +x ./script.pl
+./script.pl [ARGS]
+```
+
+Running genomeLabel
+======
+
+
+This program generates the following output:
+## a) Labels:
+
+
 Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.
 
 In order of priority,

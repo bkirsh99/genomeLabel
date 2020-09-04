@@ -51,16 +51,16 @@ This program takes in annotation data from genomic databases as input to generat
 
 |Label | Definition|
 |:---: | :---:|
-|Exon | Intragenic stretch of DNA sequence, including non-coding untranslated regions, that can synthesize a functional RNA molecule, including mRNAs and ncRNAs.|
-|Intron |  Intragenic stretch of non-coding DNA sequence located between two successive exons.|
-|Intergenic |  Stretch of non-coding DNA sequence located between the two successive genes.|
-|Coding | Exonic stretch of DNA sequence that can synthesize a functional protein.|
-|Noncoding | Exonic stretch of DNA sequence that appears twofold: *(1)* as regulatory untranslated regions of mRNAs or *(2)* as translated regions of ncRNAs.|
-|Promoter | CAGE-defined core promoter regions.|
-|LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA polymerase II promoter.|
-|SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.|
-|Alu | Most common SINE element, which is highly conserved and often implicated in disease.|
-|Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.|
+|![#00ff00](https://via.placeholder.com/15/00ff00/000000?text=+) Exon | Intragenic stretch of DNA sequence, including non-coding untranslated regions, that can synthesize a functional RNA molecule, including mRNAs and ncRNAs.|
+|![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+) Intron |  Intragenic stretch of non-coding DNA sequence located between two successive exons.|
+|![#0000ff](https://via.placeholder.com/15/0000ff/000000?text=+) Intergenic |  Stretch of non-coding DNA sequence located between the two successive genes.|
+|![#006600](https://via.placeholder.com/15/006600/000000?text=+) Coding | Exonic stretch of DNA sequence that can synthesize a functional protein.|
+|![#99ff99](https://via.placeholder.com/15/99ff99/000000?text=+) Noncoding | Exonic stretch of DNA sequence that appears twofold: *(1)* as regulatory untranslated regions of mRNAs or *(2)* as translated regions of ncRNAs.|
+|![#7f00ff](https://via.placeholder.com/15/7f00ff/000000?text=+) Promoter | CAGE-defined core promoter regions.|
+|![#ffff00](https://via.placeholder.com/15/ffff00/000000?text=+) LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA polymerase II promoter.|
+|![#ffcc99](https://via.placeholder.com/15/ffcc99/000000?text=+) SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.|
+|![#cc6600](https://via.placeholder.com/15/cc6600/000000?text=+) Alu | Most common SINE element, which is highly conserved and often implicated in disease.|
+|![#7f007f](https://via.placeholder.com/15/7f007f/000000?text=+) Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.|
 
 **Note:** In order of classification priority, we have:
 

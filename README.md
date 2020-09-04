@@ -224,6 +224,8 @@ This is an example of the **"Genomic Coding"** track, which is only one of the s
 5. **Enhancer Track** - Enhancer elements (enhancerTrack.bed)
 6. **Repeat Track** - Repetitive elements, including LINEs, SINEs, and Alu (repeatTrack.bed)
 
+![Image of All Tracks](https://docs.google.com/drawings/d/e/2PACX-1vQu6f0fA1D0bx0ZyYR9ErXmIUtKLcLBKDiEyCQNUNW80IOYvIM7_Ods73hpA_wV-2shq4CUGxppKLrZ/pub?w=960&h=720)
+
 *This tool was inspired by:*
 - **davetang/defining_genomic_regions:** https://github.com/davetang/defining_genomic_regions
 - **cschlaffner/TrackHubGenerator:**  https://github.com/cschlaffner/TrackHubGenerator

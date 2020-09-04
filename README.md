@@ -62,12 +62,6 @@ This program takes in annotation data from genomic databases as input to generat
 |![#cc6600](https://via.placeholder.com/15/cc6600/000000?text=+) Alu | Most common SINE element, which is highly conserved and often implicated in disease.|
 |![#7f007f](https://via.placeholder.com/15/7f007f/000000?text=+) Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.|
 
-**Note:** In order of classification priority, we have:
-
-* **EXON** (**CDS** > **exon** > **UTR**)
-  * **INTRON**
-    * **INTERGENIC**
-
 Installation
 ======
 Dependencies:
@@ -216,13 +210,16 @@ Example Directory Tree:
 Example Data Tracks:
 ------
 ![Image of Labelling Schema](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
-This is an example of the **"Genomic Coding"** track, which is only one of the six tracks generated:
+
+This is an example of the priority levels behind the labelling of the **"Genomic Coding"** track, which is only one of the six tracks generated:
 1. **Genomic Track** - Exonic, intronic, and intergenic elements (genomicTrack.bed)
 2. **Coding Track** - Coding and noncoding exonic elements (codingTrack.bed)
 3. **Genomic Coding Track** - Coding and noncoding exonic, intronic, and intergenic elements (genomicCodingTrack.bed)
 4. **Promoter Track** - Promoter elements (promoterTrack.bed)
 5. **Enhancer Track** - Enhancer elements (enhancerTrack.bed)
 6. **Repeat Track** - Repetitive elements, including LINEs, SINEs, and Alu (repeatTrack.bed)
+
+**Note:** In order of classification priority, we have: **EXON** (**CDS** > **exon** > **UTR**) > **INTRON** > **INTERGENIC**
 
 ![Image of All Tracks](https://docs.google.com/drawings/d/e/2PACX-1vQu6f0fA1D0bx0ZyYR9ErXmIUtKLcLBKDiEyCQNUNW80IOYvIM7_Ods73hpA_wV-2shq4CUGxppKLrZ/pub?w=960&h=720)
 

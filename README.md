@@ -215,7 +215,14 @@ Example Directory Tree:
 
 Example Data Tracks:
 ------
-![Image of Labelling Priority](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
+![Image of Labelling Schema](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
+This is an example of the **"Genomic Coding"** track, which is only one of the six tracks generated:
+1. **Genomic Track** - Exonic, intronic, and intergenic elements (genomicTrack.bed)
+2. **Coding Track** - Coding and noncoding exonic elements (codingTrack.bed)
+3. **Genomic Coding Track** - Coding and noncoding exonic, intronic, and intergenic elements (genomicCodingTrack.bed)
+4. **Promoter Track** - Promoter elements (promoterTrack.bed)
+5. **Enhancer Track** - Enhancer elements (enhancerTrack.bed)
+6. **Repeat Track** - Repetitive elements, including LINEs, SINEs, and Alu (repeatTrack.bed)
 
 *This tool was inspired by:*
 - **davetang/defining_genomic_regions:** https://github.com/davetang/defining_genomic_regions

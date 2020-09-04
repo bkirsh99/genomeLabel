@@ -22,11 +22,11 @@ Contents
 What is genomeLabel?
 ======
 **genomeLabel** is a command line tool for the fully automatic generation of genomic label data that can be summarized into statistically relevant information and visualized in a genome browser.
-The labels annotate the genome both structurally and functionally, revealing insights into potential regulatory roles of certain regions.
+The labels annotate the genome both structurally and functionally, providing insight into the potentially regulatory role of certain regions.
 
-genomeLabel is implemented in **perl** and automatically executes tools provided by bedtools and UCSC to annotate the Genome Reference Consortium Human Build 38 (**hg38**) assembly.  
+The genomeLabel tool is implemented in **perl** and automatically executes commands provided by bedtools and UCSC to annotate the Genome Reference Consortium Human Build 38 **(hg38)** assembly.  
 
-For display by the UCSC Genome Browser, assembly hubs need to be hosted on a publicly accessible web server.
+For display by the UCSC Genome Browser, a script 'makeHubs.pl' can be used. Hoewever, assembly hubs need to be hosted on a publicly accessible web server provided by the user.
 
 Background:
 ------

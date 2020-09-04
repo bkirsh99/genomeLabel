@@ -64,9 +64,9 @@ This program takes in annotation data from genomic databases as input to generat
 
 **Note:** In order of classification priority, we have:
 
-1. **EXON** (**CDS** > **exon** > **UTR**)
-> 2. **INTRON**
->> 3. **INTERGENIC**
+* **EXON** (**CDS** > **exon** > **UTR**)
+  * **INTRON**
+    * **INTERGENIC**
 
 Installation
 ======

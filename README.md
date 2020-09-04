@@ -135,6 +135,9 @@ This script produces a directory named after the input region in the format **my
     ├── genomes.txt - list of genome assemblies included in the hub (i.e. hg38 only)
     └── hub.txt - short description of hub properties
 ```
+To use the output of *makeHubs.pl* in the UCSC Genome Browser, copy the complete hub folder (e.g. myHub_chrX:15200000-15800000) to a publicly accessible web server. Then, go to https://genome.ucsc.edu/index.html, click on My Data -> Track Hubs -> My Hubs, and add the link to your publicly available hub.txt file into the URL window.
+
+Alternatively, you can load individual tracks from './out/chr:start-stop/trackFiles' as custom tracks on UCSC or IGV.
 
 Output of genomeLabel
 ======

@@ -13,6 +13,7 @@ Contents
   - [genomeLabel](#genomelabel)
 - [Running genomeLabel](#running-genomelabel)
   - [run.pl](#run.pl)
+  - [makeHubs.pl](#makehubs.pl)
 - [Output of genomeLabel](#output-of-genomelabel)
   - [Example Directory Tree](#example-directory-tree)
     - [Directory Contents](#directory-contents)
@@ -69,7 +70,7 @@ Installation
 ======
 Dependencies:
 ------
-genomeLabel contains different perl scripts that require bedtools and [UCSC utilities](http://hgdownload.soe.ucsc.edu/admin/exe).
+genomeLabel contains different perl scripts that require bedtools and bedToBigBed, made available by [UCSC utilities](http://hgdownload.soe.ucsc.edu/admin/exe).
 
 Quick Start:
 ------
@@ -87,7 +88,10 @@ make clean && make all
 ```bash
 git clone https://github.com/bkirsh99/genomeLabel.git
 ```
-
+## Navigate to the genomeLabel directory
+```bash
+cd ${genomeLabel_DIR}
+```
 genomeLabel:
 ------
 To initialize the program with all the necessary data files, *run.pl* must be the first script to be run. After that, standalone scripts can be used for either the same or different input regions.
@@ -118,7 +122,17 @@ This program contains 5 perl scripts and must be initialized by running **run.pl
 run.pl
 ------
 This script can make calls to all other scripts and generate labels, tracks, summary statistics, and data hubs. It prompts the user for each of these subroutines with a (Y/N) question. 
-It can be the only script used every time the program is run, or the user may choose to run subroutines individually depending on their desired output. Either way, it must be the first script that is ran to initialize the genomeLabel tool.
+It can be the only script used every time the program is run, or the user may choose to run subroutines individually depending on their desired output. Either way, it is the first script that must be ran for **each new input region** to initialize the genomeLabel tool with appropriately filtered data.
+
+makeHubs.pl
+------
+This script produces a directory named after the input region in the format **myHub_chr:start-stop**. It follows UCSC's [Public Hub Guidelines](http://genomewiki.ucsc.edu/index.php/Public_Hub_Guidelines) by generating the following:
+├── myHub_chrX:15200000-15800000 - **directory containing track hub files**
+    ├── hg38 - **directory of data for the hg38 (GRCh38) human assembly**
+    |   ├── [...].bb - **tracks in this directory**
+    |   └── trackDb.txt - **display properties for tracks in this directory**
+    ├── genomes.txt - **list of genome assemblies included in the hub data (i.e. hg38 *only*)**
+    └── hub.txt - **a short description of hub properties**
 
 Output of genomeLabel
 ======

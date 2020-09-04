@@ -127,12 +127,14 @@ It can be the only script used every time the program is run, or the user may ch
 makeHubs.pl
 ------
 This script produces a directory named after the input region in the format **myHub_chr:start-stop**. It follows UCSC's [Public Hub Guidelines](http://genomewiki.ucsc.edu/index.php/Public_Hub_Guidelines) by generating the following:
-├── myHub_chrX:15200000-15800000 - **directory containing track hub files**
-    ├── hg38 - **directory of data for the hg38 (GRCh38) human assembly**
-    |   ├── [...].bb - **tracks in this directory**
-    |   └── trackDb.txt - **display properties for tracks in this directory**
-    ├── genomes.txt - **list of genome assemblies included in the hub data (i.e. hg38 *only*)**
-    └── hub.txt - **a short description of hub properties**
+```bash
+├── myHub_chrX:15200000-15800000 - directory containing track hub files
+    ├── hg38 - directory containing hg38 (GRCh38) human assembly data
+    |   ├── [...].bb - tracks in this directory
+    |   └── trackDb.txt - display properties of tracks in this directory
+    ├── genomes.txt - list of genome assemblies included in the hub (i.e. hg38 only)
+    └── hub.txt - short description of hub properties
+```
 
 Output of genomeLabel
 ======

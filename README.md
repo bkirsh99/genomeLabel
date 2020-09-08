@@ -73,6 +73,9 @@ Quick Start:
 ## Install perl and required perl modules
 ```bash
 sudo apt-get install perl
+cpan File::Which
+cpan File::Basename
+cpan Tie::IxHash
 ```
 ## Install bedtools
 ```bash

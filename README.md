@@ -49,6 +49,7 @@ This program takes in annotation data from genomic databases as input to generat
 |[FANTOM5 Promoter Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks/hg38_fair+new_CAGE_peaks_phase1and2.bed.gz)|promoter|
 |[FANTOM5 Enhancer Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/enhancer/F5.hg38.enhancers.bed.gz)|enhancer (*active, transcribed in-vivo*)|
 |[RepeatMasker Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)|LINE, SINE, Alu|
+|[Segway Encyclopedia Data](https://noble.gs.washington.edu/proj/encyclopedia/segway_encyclopedia.bed.gz)|functional_element|
 
 |Label | Definition|
 |:---: | :---:|
@@ -62,6 +63,7 @@ This program takes in annotation data from genomic databases as input to generat
 |![#ffcc99](https://via.placeholder.com/15/ffcc99/000000?text=+) SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.|
 |![#cc6600](https://via.placeholder.com/15/cc6600/000000?text=+) Alu | Most common SINE element, which is highly conserved and often implicated in disease.|
 |![#7f007f](https://via.placeholder.com/15/7f007f/000000?text=+) Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.|
+|![#66b2ff](https://via.placeholder.com/15/66b2ff/000000?text=+) Functional Element | Putative cell type-agnostic transcriptional and regulatory DNA sequences identified by [Segway](https://www.biorxiv.org/content/10.1101/086025v3.full), which reflect DNA binding and accessibility (e.g. quiescent, enhancer, promoter, bivalent, etc.).|
 
 Installation
 ======

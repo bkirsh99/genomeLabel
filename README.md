@@ -14,6 +14,7 @@ Contents
 - [Running genomeLabel](#running-genomelabel)
   - [run.pl](#run.pl)
   - [makeHubs.pl](#makehubs.pl)
+  - [getStats.pl](#getstats.pl)
 - [Output of genomeLabel](#output-of-genomelabel)
   - [Example Directory Tree](#example-directory-tree)
     - [Directory Contents](#directory-contents)
@@ -137,6 +138,21 @@ This script produces a directory named after the input region in the format **my
 To use the output of *makeHubs.pl* in the UCSC Genome Browser, copy the complete hub folder (e.g. myHub_chrX:15200000-15800000) to a publicly accessible web server. Then, go to https://genome.ucsc.edu/index.html, click on My Data -> Track Hubs -> My Hubs, and add the link to your publicly available hub.txt file into the URL window.
 
 Alternatively, you can load individual tracks from './out/chr:start-stop/trackFiles' as custom tracks on UCSC or IGV.
+
+getStats.pl
+------
+The statistics for a region are provided in both totality and relative metrics. The relativity parameters vary by label type:
+
+| |Total Region|Exonic|Intronic|Intergenic|Repetitive|Cis-Regulatory|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|Total Region|
+|Coding Element|
+|Noncoding Element|
+|LINE Element|
+|SINE Element|
+|Alu Element|
+|Promoter Element|
+|Enhancer Element|
 
 Output of genomeLabel
 ======

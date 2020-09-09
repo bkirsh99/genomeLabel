@@ -109,8 +109,8 @@ chmod +x ./script.pl
 Running genomeLabel
 ======
 This program contains 5 perl scripts and must be initialized by running **run.pl**. 
-- If a script requires an input region as a commandd line argument, it must be provided in the format **chr:start-stop**.
-- If a script requires the path to a UCSC utility (i.e. **bedToBigBed**), it must be provided in the format **/path/bedToBigBed**. If you are unsure where this file lies, you can run the following command:
+- If a script requires an input region as a command line argument, it must be provided in the format **chr:start-stop**.
+- If a script requires the path to a UCSC binary utility (i.e. **liftOver** and **bedToBigBed**), it must be provided in the format **/path/to/utility/** (i.e. enclosed by "/" and excluding the name of the utility itself). If you are unsure where this file lies, you can run the following command:
 
   ``` bash
   find / -type f -name "bedToBigBed" 2>/dev/null

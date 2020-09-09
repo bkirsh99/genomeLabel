@@ -66,7 +66,7 @@ This program takes in annotation data from genomic databases as input to generat
 |![#cc6600](https://via.placeholder.com/15/cc6600/000000?text=+) Alu | Most common SINE element, which is highly conserved and often implicated in disease.|
 |![#7f007f](https://via.placeholder.com/15/7f007f/000000?text=+) Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.|
 |![#66b2ff](https://via.placeholder.com/15/66b2ff/000000?text=+) Functional Element | Putative cell type-agnostic transcriptional and regulatory DNA sequences identified by [Segway](https://www.biorxiv.org/content/10.1101/086025v3.full), which reflect DNA binding and accessibility (e.g. quiescent, enhancer, promoter, bivalent, etc.).|
-|![#66b2ff](https://via.placeholder.com/15/66b2ff/000000?text=+) Functional Element 
+|![#ff007f](https://via.placeholder.com/15/ff007f/000000?text=+) Cis-Regulatory Module (CRM) | Putative binding sites for transcriptional regulators identified by [ReMap](https://academic.oup.com/nar/article/48/D1/D180/5608991), which reflect the intersection of overlapping peaks across different datasets.
 
 Installation
 ======

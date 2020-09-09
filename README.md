@@ -158,6 +158,8 @@ The statistics for a region are provided in both totality and relative metrics. 
 |Alu Element|
 |Promoter Element|
 |Enhancer Element|
+|Functional Element|
+|Cis-Regulatory Module|
 
 Output of genomeLabel
 ======
@@ -165,7 +167,6 @@ Example Directory Tree:
 ------
 
 ``` bash
-.
 .
 ├── data
 │   ├── F5.hg38.enhancers.bed.gz
@@ -263,6 +264,7 @@ This is an example of the priority levels behind the labelling of the **"Genomic
 6. **Repeat Track** - Repetitive elements, including LINEs, SINEs, and Alu (repeatTrack.bed)
 7. **Functional Element Track** - Putative cell type-agnostic functional elements (funtional_elementTrack.bed)
 8. **Cis-Regulatory Module (CRM) Track** - Putative cell type and transcriptional regulator-agnostic binding sites (crmTrack.bed)
+
 **Note:** In order of classification priority, we have: **EXON** (**CDS** > **exon** > **UTR**) > **INTRON** > **INTERGENIC**
 
 ![Image of All Tracks](https://docs.google.com/drawings/d/e/2PACX-1vQu6f0fA1D0bx0ZyYR9ErXmIUtKLcLBKDiEyCQNUNW80IOYvIM7_Ods73hpA_wV-2shq4CUGxppKLrZ/pub?w=960&h=720)

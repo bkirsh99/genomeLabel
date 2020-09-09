@@ -25,7 +25,7 @@ What is genomeLabel?
 **genomeLabel** is a command line tool for the fully automatic generation of genomic label data that can be summarized into statistically relevant information and visualized in a genome browser.
 The labels annotate the genome both structurally and functionally, providing insight into the potentially regulatory role of certain regions.
 
-The genomeLabel tool is implemented in **perl** and automatically executes commands provided by bedtools and UCSC to annotate the Genome Reference Consortium Human Build 38 **(hg38)** assembly.  
+The genomeLabel tool is implemented in **perl** and automatically executes commands provided by bedtools and UCSC to annotate the Genome Reference Consortium Human Build 38 **(hg38)** assembly. For that, the **liftOver** UCSC utility must be downloaded to convert Segway's hg19 data.
 
 For display by the UCSC Genome Browser, a script 'makeHubs.pl' can be used. Hoewever, assembly hubs need to be hosted on a publicly accessible web server provided by the user.
 
@@ -50,6 +50,8 @@ This program takes in annotation data from genomic databases as input to generat
 |[FANTOM5 Enhancer Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/enhancer/F5.hg38.enhancers.bed.gz)|enhancer (*active, transcribed in-vivo*)|
 |[RepeatMasker Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)|LINE, SINE, Alu|
 |[Segway Encyclopedia Data](https://noble.gs.washington.edu/proj/encyclopedia/segway_encyclopedia.bed.gz)|functional_element|
+|[UCSC liftOver Data](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz)|functional_element|
+|[ReMap 2020 Data]()
 
 |Label | Definition|
 |:---: | :---:|
@@ -64,12 +66,13 @@ This program takes in annotation data from genomic databases as input to generat
 |![#cc6600](https://via.placeholder.com/15/cc6600/000000?text=+) Alu | Most common SINE element, which is highly conserved and often implicated in disease.|
 |![#7f007f](https://via.placeholder.com/15/7f007f/000000?text=+) Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.|
 |![#66b2ff](https://via.placeholder.com/15/66b2ff/000000?text=+) Functional Element | Putative cell type-agnostic transcriptional and regulatory DNA sequences identified by [Segway](https://www.biorxiv.org/content/10.1101/086025v3.full), which reflect DNA binding and accessibility (e.g. quiescent, enhancer, promoter, bivalent, etc.).|
+|![#66b2ff](https://via.placeholder.com/15/66b2ff/000000?text=+) Functional Element 
 
 Installation
 ======
 Dependencies:
 ------
-genomeLabel contains different perl scripts that require bedtools and bedToBigBed, made available by [UCSC utilities](http://hgdownload.soe.ucsc.edu/admin/exe).
+genomeLabel contains different perl scripts that require bedtools, liftOver, and bedToBigBed. The latter two are made available by [UCSC utilities](http://hgdownload.soe.ucsc.edu/admin/exe).
 
 Quick Start:
 ------

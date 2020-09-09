@@ -166,15 +166,25 @@ Example Directory Tree:
 
 ``` bash
 .
+.
 ├── data
+│   ├── F5.hg38.enhancers.bed.gz
+│   ├── hg19ToHg38.over.chain.gz
 │   ├── hg38.chrom.sizes
 │   ├── hg38.ncbiRefSeq.gtf.gz
 │   ├── hg38_fair+new_CAGE_peaks_phase1and2.bed.gz
-│   └── rmsk.txt.gz
+│   ├── lifted.bed
+│   ├── remap2020_crm_macs2_hg38_v1_0.bed.gz
+│   ├── rmsk.txt.gz
+│   ├── segway_encyclopedia.bed.gz
+│   └── unlifted.bed
 ├── hubs
 │   └── myHub_chrX:15200000-15800000
 │       ├── hg38
 │       │   ├── codingTrack.bb
+│       │   ├── crmTrack.bb
+│       │   ├── enhancerTrack.bb
+│       │   ├── functional_elementTrack.bb
 │       │   ├── genomicCodingTrack.bb
 │       │   ├── genomicTrack.bb
 │       │   ├── promoterTrack.bb
@@ -185,10 +195,13 @@ Example Directory Tree:
 ├── out
 │   └── chrX:15200000-15800000
 │       ├── dataFiles
+│       │   ├── F5.hg38.enhancers.bed.gz
 │       │   ├── hg38.chrom.sizes
 │       │   ├── hg38.ncbiRefSeq.gtf.gz
 │       │   ├── hg38_fair+new_CAGE_peaks_phase1and2.bed.gz
-│       │   └── rmsk.txt.gz
+│       │   ├── remap2020_crm_macs2_hg38_v1_0.bed.gz
+│       │   ├── rmsk.txt.gz
+│       │   └── segway_encyclopedia.bed.gz
 │       ├── intersectFiles
 │       │   ├── Alu.bed.gz
 │       │   ├── LINE.bed.gz
@@ -198,13 +211,19 @@ Example Directory Tree:
 │       │   ├── LINE.bed.gz
 │       │   ├── SINE.bed.gz
 │       │   ├── coding.bed.gz
+│       │   ├── crm.bed.gz
+│       │   ├── enhancer.bed.gz
 │       │   ├── exon.bed.gz
+│       │   ├── functional_element.bed.gz
 │       │   ├── intergenic.bed.gz
 │       │   ├── intron.bed.gz
 │       │   ├── noncoding.bed.gz
 │       │   └── promoter.bed.gz
 │       ├── trackFiles
 │       │   ├── codingTrack.bed
+│       │   ├── crmTrack.bed
+│       │   ├── enhancerTrack.bed
+│       │   ├── functional_elementTrack.bed
 │       │   ├── genomicCodingTrack.bed
 │       │   ├── genomicTrack.bed
 │       │   ├── promoterTrack.bed
@@ -235,14 +254,15 @@ Example Data Tracks:
 ------
 ![Image of Labelling Schema](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
 
-This is an example of the priority levels behind the labelling of the **"Genomic Coding"** track, which is only one of the six tracks generated:
+This is an example of the priority levels behind the labelling of the **"Genomic Coding"** track, which is only one of the many tracks generated:
 1. **Genomic Track** - Exonic, intronic, and intergenic elements (genomicTrack.bed)
 2. **Coding Track** - Coding and noncoding exonic elements (codingTrack.bed)
 3. **Genomic Coding Track** - Coding and noncoding exonic, intronic, and intergenic elements (genomicCodingTrack.bed)
 4. **Promoter Track** - Promoter elements (promoterTrack.bed)
 5. **Enhancer Track** - Enhancer elements (enhancerTrack.bed)
 6. **Repeat Track** - Repetitive elements, including LINEs, SINEs, and Alu (repeatTrack.bed)
-
+7. **Functional Element Track** - Putative cell type-agnostic functional elements (funtional_elementTrack.bed)
+8. **Cis-Regulatory Module (CRM) Track** - Putative cell type and transcriptional regulator-agnostic binding sites (crmTrack.bed)
 **Note:** In order of classification priority, we have: **EXON** (**CDS** > **exon** > **UTR**) > **INTRON** > **INTERGENIC**
 
 ![Image of All Tracks](https://docs.google.com/drawings/d/e/2PACX-1vQu6f0fA1D0bx0ZyYR9ErXmIUtKLcLBKDiEyCQNUNW80IOYvIM7_Ods73hpA_wV-2shq4CUGxppKLrZ/pub?w=960&h=720)

@@ -51,7 +51,7 @@ This program takes in annotation data from genomic databases as input to generat
 |[RepeatMasker Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)|LINE, SINE, Alu|
 |[Segway Encyclopedia Data](https://noble.gs.washington.edu/proj/encyclopedia/segway_encyclopedia.bed.gz)|functional_element|
 |[UCSC liftOver Data](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz)|functional_element|
-|[ReMap 2020 Data]()
+|[ReMap 2020 Data](http://remap.univ-amu.fr/storage/remap2020/hg38/MACS2/remap2020_crm_macs2_hg38_v1_0.bed.gz)|crm|
 
 |Label | Definition|
 |:---: | :---:|

@@ -48,6 +48,19 @@ chr10   100184852       100185124       chr10:100184852-100185124       2       
 ```
 Promoters
 ------
+- *Content:* All CAGE peaks consisting of fairly remapped CAGE peaks using UCSC Lift-over and newly identified CAGE peaks in hg38 DPI clustering.
+- *Description of the columns:* This file is based on BED9 format, where the thickStart and thickEnd position represent representative TSS positions.
+
+- chromosome
+- start of CAGE peak region
+- end of CAGE peak region
+- name (ID) of the CAGE peak
+- score
+- strand of the CAGE peak
+- start of the representative TSS position
+- end of the representative TSS position (Note: end is always start+1)
+- rgb string for color coding (plus or minus strand only)
+
 ```bash
 chr1    629191  629220  hg19::chr1:564571..564600,+;hg_1.1      2972    +       629208  629209  255,0,0
 chr1    629259  629269  hg19::chr1:564639..564649,+;hg_2.1      397     +       629265  629266  255,0,0

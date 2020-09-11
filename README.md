@@ -53,6 +53,8 @@ This program takes in annotation data from genomic databases as input to generat
 |[UCSC liftOver Data](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz)|functional_element|
 |[ReMap 2020 Data](http://remap.univ-amu.fr/storage/remap2020/hg38/MACS2/remap2020_crm_macs2_hg38_v1_0.bed.gz)|crm|
 
+For an overview of the contents and format of each data set, please read up on additional [data](https://github.com/bkirsh99/genomeLabel/data.md) information.
+
 |Label | Definition|
 |:---: | :---:|
 |![#00ff00](https://via.placeholder.com/15/00ff00/000000?text=+) Exon | Intragenic stretch of DNA sequence, including non-coding untranslated regions, that can synthesize a functional RNA molecule, including mRNAs and ncRNAs.|

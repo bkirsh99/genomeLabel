@@ -9,9 +9,7 @@ Contents
 - [FANTOM5 Promoters - **hg38_fair+new_CAGE_peaks_phase1and2.bed.gz**](#fantom5)
 - [RepeatMasker - **rmsk.txt.gz**](#repeatmasker)
 - [Segway Encyclopedia - **segway_encyclopedia.bed.gz**](#segway)
-- [Segway - **](#segway)
 - [ReMap 2020 CRMs - **remap2020_crm_macs2_hg38_v1_0.bed.gz**](#remap)
-- [ReMap 2020 - **](#remap)
 - [UCSC Chromosome Sizes - **hg38.chrom.sizes**](#ucsc)
 - [UCSC liftOver - **hg19ToHg38.over.chain.gz**](#ucsc)
 
@@ -35,11 +33,7 @@ FANTOM5
 Enhancers
 ------
 - *Content:* Active, in vivo bidirectionally transcribed enhancers located by identifying unique CAGE clusters.
-- *Description of the columns:* This file is based on BED9 format, where the thickStart and thickEnd position represent representative TSS positions.
-**Note:** FANTOM5 provides gene-association data for promoter elements through https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_ann.txt.gz
 
-|chromosome|start of CAGE peak region|end of CAGE peak region|name (ID) of the CAGE peak|score|strand of the CAGE peak|start of the representative TSS position|end of the representative TSS position (Note: end is always start+1)|rgb string for color coding (plus or minus strand only)|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 ```bash
 chr10   100006233       100006603       chr10:100006233-100006603       35      .       100006509       100006510      0,0,0                                                       2218,34  0,336
 chr10   100008181       100008444       chr10:100008181-100008444       101     .       100008274       100008275      0,0,0                                                       232,108  0,155

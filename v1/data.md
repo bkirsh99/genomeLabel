@@ -50,6 +50,7 @@ Promoters
 ------
 - *Content:* All CAGE peaks consisting of fairly remapped CAGE peaks using UCSC Lift-over and newly identified CAGE peaks in hg38 DPI clustering.
 - *Description of the columns:* This file is based on BED9 format, where the thickStart and thickEnd position represent representative TSS positions.
+
 **Note:** FANTOM5 provides gene-association data for promoter elements through https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_ann.txt.gz
 
 |chromosome|start of CAGE peak region|end of CAGE peak region|name (ID) of the CAGE peak|score|strand of the CAGE peak|start of the representative TSS position|end of the representative TSS position (Note: end is always start+1)|rgb string for color coding (plus or minus strand only)|

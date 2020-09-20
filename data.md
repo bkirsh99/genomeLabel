@@ -139,6 +139,8 @@ chr9    138394717
 ```
 liftOver
 ------
+hg19ToHg38.over.chain.gz  - Three-column tab-separated file containing the liftOver data required as input to convert hg19 coordinates to hg38. The executable file for the utility can be downloaded from http://hgdownload.cse.ucsc.edu/admin/exe/liftOver.gz.
+
 ```bash
 chain 20851231461 chr1 249250621 + 10000 249240621 chr1 248956422 + 10000 248946422 2
 167376  50041   80290

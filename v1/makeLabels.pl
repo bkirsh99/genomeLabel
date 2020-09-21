@@ -1,4 +1,3 @@
-Task11/testScripts$ cat ../genomeLabel/makeLabels.pl
 #!/usr/bin/env perl
 #
 # Use this script to create labels for genomic elements.

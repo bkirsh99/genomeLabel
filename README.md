@@ -7,6 +7,7 @@ Contents
 - [What is genomeLabel?](#what-is-genomelabel)
   - [Background](#background)
   - [Data](#data)
+  - [Usage](#usage)
 - [Installation](#installation)
   - [Dependencies](#dependencies)
   - [Quick Start](#quick-start)
@@ -44,16 +45,61 @@ This program takes in annotation data from genomic databases as input to generat
   
 |INPUT | OUTPUT|
 |:--: | :--:|
-|[NCBI RefSeq Curated Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/genes/hg38.ncbiRefSeq.gtf.gz)|exon, intron, coding, noncoding, intergenic|
-|[UCSC Chromosome Sizes Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes)|intergenic|
-|[FANTOM5 Promoter Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks/hg38_fair+new_CAGE_peaks_phase1and2.bed.gz)|promoter|
-|[FANTOM5 Enhancer Data](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/enhancer/F5.hg38.enhancers.bed.gz)|enhancer (*active, transcribed in-vivo*)|
-|[RepeatMasker Data](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)|LINE, SINE, Alu|
-|[Segway Encyclopedia Data](https://noble.gs.washington.edu/proj/encyclopedia/segway_encyclopedia.bed.gz)|functional_element|
-|[UCSC liftOver Data](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz)|functional_element|
-|[ReMap 2020 Data](http://remap.univ-amu.fr/storage/remap2020/hg38/MACS2/remap2020_crm_macs2_hg38_v1_0.bed.gz)|crm|
+|[NCBI RefSeq genes, curated subset](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/genes/hg38.ncbiRefSeq.gtf.gz)|exon, intron, coding, noncoding, intergenic|
+|[UCSC hg38.chrom.sizes](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes)|intergenic|
+|[FANTOM5 TSS (CAGE) peaks](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks/hg38_fair+new_CAGE_peaks_phase1and2.bed.gz)|promoter|
+|[RepeatMasker, soft-masked](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.sql)|repetitive element|
+|[Segway genomic "states"](https://noble.gs.washington.edu/proj/encyclopedia/segway_encyclopedia.bed.gz)|functional element|
+|[UCSC hg19ToHg38.over.chain.gz](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz)|functional element|
+|[ReMap ChIP-seq peaks](http://remap.univ-amu.fr/storage/remap2020/hg38/MACS2/remap2020_crm_macs2_hg38_v1_0.bed.gz)|cis-regulatory module|
 
 For an overview of the contents and format of each data set, please read up on additional [data](https://github.com/bkirsh99/genomeLabel/blob/master/data.md) information.
+
+Usage:
+------
+```javascript
+USAGE: ./run.pl [chr:start-stop] --biotype [BIOTYPE] --path [/PATH/] <command(s)> <filter(s)>
+     
+     The program accepts any of the following six human cell types used by the ENCODE Consortium: GM12878, H1-hESC, K562, HeLa-S3, HepG2, and HUVEC.
+     The minimum requirements to run the script are the region, biotype, and path to liftOver.
+     
+     If <command(s)> is omitted, the default behaviour of the program is to generate a set of "label files." These can be useful to extract additional statistics or create more complex tracks according to user needs.
+     
+     For simple applications, <command(s)> can be used to output select "track files," track hubs, and summary statistics. 
+     Filter arguments can be passed alongside different commands for added specificity. 
+          
+
+    Commands: (Any number of commands can be used at a single time.)
+     --------
+      
+      --makeLabels          Make "label files" (exon.bed, intron.bed, intergenic.bed, transcript.bed, coding.bed, noncoding.bed, promoter.bed, repeat.bed, 
+                              f_element.bed,  and cr_module.bed. Default operation.
+      --makeTracks          Make "track files" (genomic.bed, promoter.bed, repeat.bed, f_element.bed, and cr_module.bed). 
+      --makeHub             Make a tack data hub that can be imported into the UCSC Genome Browser.
+      --getStats            Extract summary statistics.
+
+      --help                Print this message and exit successfully.
+    
+    
+    Filters:
+     --------
+    
+    Filters for makeLabels and makeTracks specify the subclasses of features to be included in label and track files. If both commands are executed in the same call, all filters will apply to each set of output files.
+    
+      --repeat                 A list of one or more repeats - must follow the naming conventions adopted by RepeatMasker - may be a repName, repClass, repFamily, 
+                                 or a combination of those.
+      --regulator              A list of one or more transcriptional regulators - must follow the naming conventions adopted by ReMap - may be a transcription factor
+                                 (TF), transcription co-activator (TCF), chromatin-remodeling factor (CRF), or a combination of those.
+      
+      Filters for getStats specify the relativity of statistics to be computed.
+
+      --genes                     A list of the genes and their respective transcripts contained in the input region.
+      --coverage-absolute         The fraction of distinct bases from the input region covered by each major feature (exon, intron, intergenic, promoter, repetitive
+                                    element, functional element, and cis-regulatory module). 
+      --coverage-absolute-ex      The fraction of distinct bases from the input region covered by coding and noncoding exons.
+      --coverage-absolute-fe      The fraction of distinct bases from the input region covered by
+    
+```
 
 |Label | Definition|
 |:---: | :---:|

@@ -57,7 +57,7 @@ For an overview of the contents and format of each data set, please read up on a
 
 Usage:
 ------
-```javascript
+```bash
 USAGE: ./run.pl [chr:start-stop] --biotype [BIOTYPE] --path [/PATH/] <command(s)> <filter(s)>
      
      The program accepts any of the following six human cell types used by the ENCODE Consortium: GM12878, H1-hESC, K562, HeLa-S3, HepG2, and HUVEC.

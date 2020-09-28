@@ -72,8 +72,7 @@ USAGE: ./run.pl [chr:start-stop] --biotype [BIOTYPE] --path [/PATH/] <command(s)
     Commands: (Any number of commands can be used at a single time.)
      --------
       
-      --makeLabels          Make "label files" (exon.bed, intron.bed, intergenic.bed, transcript.bed, coding.bed, noncoding.bed, promoter.bed, repeat.bed, 
-                              f_element.bed,  and cr_module.bed. Default operation.
+      --makeLabels          Make "label files" (exon.bed, intron.bed, intergenic.bed, transcript.bed, coding.bed, noncoding.bed, promoter.bed, repeat.bed, f_element.bed,  and cr_module.bed. Default operation.
       --makeTracks          Make "track files" (genomic.bed, promoter.bed, repeat.bed, f_element.bed, and cr_module.bed). 
       --makeHub             Make a tack data hub that can be imported into the UCSC Genome Browser.
       --getStats            Extract summary statistics.
@@ -86,18 +85,18 @@ USAGE: ./run.pl [chr:start-stop] --biotype [BIOTYPE] --path [/PATH/] <command(s)
     
     Filters for makeLabels and makeTracks specify the subclasses of features to be included in label and track files. If both commands are executed in the same call, all filters will apply to each set of output files.
     
-      --repeat                 A list of one or more repeats - must follow the naming conventions adopted by RepeatMasker - may be a repName, repClass, repFamily, 
-                                 or a combination of those.
-      --regulator              A list of one or more transcriptional regulators - must follow the naming conventions adopted by ReMap - may be a transcription factor
-                                 (TF), transcription co-activator (TCF), chromatin-remodeling factor (CRF), or a combination of those.
+      --repeat                 A list of one or more repeats - must follow the naming conventions adopted by RepeatMasker - may be a repName, repClass, repFamily, or a combination of those.
+      --regulator              A list of one or more transcriptional regulators - must follow the naming conventions adopted by ReMap - may be a transcription factor (TF), transcription co-activator (TCF), chromatin-remodeling factor (CRF), or a combination of those.
       
       Filters for getStats specify the relativity of statistics to be computed.
 
-      --genes                     A list of the genes and their respective transcripts contained in the input region.
-      --coverage-absolute         The fraction of distinct bases from the input region covered by each major feature (exon, intron, intergenic, promoter, repetitive
-                                    element, functional element, and cis-regulatory module). 
-      --coverage-absolute-ex      The fraction of distinct bases from the input region covered by coding and noncoding exons.
-      --coverage-absolute-fe      The fraction of distinct bases from the input region covered by
+      --genes                          A list of the genes and their respective transcripts contained in the input region.
+      --coverage-absolute              The fraction of distinct bases from the input region covered by each major feature (exon, intron, intergenic, promoter, repetitive element, functional element, and cis-regulatory module). 
+      --coverage-absolute-ex           The fraction of distinct bases from the input region covered by coding and noncoding exons.
+      --coverage-absolute-rp           The fraction of distinct bases from the input region covered by each repetitive element.
+      --coverage-absolute-fe           The fraction of distinct bases from the input region covered by each genomic "state" (Quiescent, ConstitutiveHet, FacultativeHet, Transcribed, Promoter, Enhancer, RegPermissive, Bivalent, and LowConfidance).
+      --coverage-absolute-tf           The fraction of distinct bases from the input region covered by each transcription factor.
+      --coverage-relative <el1> <el2>  The fraction of distinct bases from element 1 <el1> covered by overlapping elements 2 <el2>.
     
 ```
 

@@ -108,12 +108,9 @@ USAGE: ./run.pl [chr:start-stop] --biotype [BIOTYPE] --path [/PATH/] <command(s)
 |![#006600](https://via.placeholder.com/15/006600/000000?text=+) Coding | Exonic stretch of DNA sequence that can synthesize a functional protein.|
 |![#99ff99](https://via.placeholder.com/15/99ff99/000000?text=+) Noncoding | Exonic stretch of DNA sequence that appears twofold: *(1)* as regulatory untranslated regions of mRNAs or *(2)* as translated regions of ncRNAs.|
 |![#7f00ff](https://via.placeholder.com/15/7f00ff/000000?text=+) Promoter | CAGE-defined core promoter regions.|
-|![#ffff00](https://via.placeholder.com/15/ffff00/000000?text=+) LINE | Non-long terminal repeat (non-LTR) retrotransposon that contains an RNA polymerase II promoter.|
-|![#ffcc99](https://via.placeholder.com/15/ffcc99/000000?text=+) SINE | Non-long terminal repeat (non-LTR) retrotransposon that does not encode a functional reverse transcriptase protein and relies on other mobile transposons, especially LINEs.|
-|![#cc6600](https://via.placeholder.com/15/cc6600/000000?text=+) Alu | Most common SINE element, which is highly conserved and often implicated in disease.|
-|![#7f007f](https://via.placeholder.com/15/7f007f/000000?text=+) Enhancer | Regulatory DNA sequence that, when bound by specific proteins (i.e transcription factors), enhance the transcription of an associated gene.|
-|![#66b2ff](https://via.placeholder.com/15/66b2ff/000000?text=+) Functional Element | Putative transcriptional and regulatory DNA sequences identified by [Segway](https://www.biorxiv.org/content/10.1101/086025v3.full), which reflect DNA binding and accessibility  across different cell types (e.g. quiescent, enhancer, promoter, bivalent, etc.).|
-|![#ff007f](https://via.placeholder.com/15/ff007f/000000?text=+) Cis-Regulatory Module (CRM) | Putative binding sites for transcriptional regulators identified by [ReMap](https://academic.oup.com/nar/article/48/D1/D180/5608991), which reflect the intersection of overlapping ChIP-seq peaks across different datasets of TRs and biotypes.|
+| ![#ff007f](https://via.placeholder.com/15/ff007f/000000?text=+) Repetitive Element | Regulatory DNA sequences identified by [RepeatMasker](http://www.repeatmasker.org/), which reflect interspersed repeats and low complexity DNA sequences.
+| Functional Element | Putative transcriptional and regulatory DNA sequences identified by [Segway](https://www.biorxiv.org/content/10.1101/086025v3.full), which reflect DNA binding and accessibility  across different cell types (e.g. quiescent, enhancer, promoter, bivalent, etc.).Coloured according to Segway schema. |
+| Cis-Regulatory Module (CRM) | Putative binding sites for transcriptional regulators identified by [ReMap](https://academic.oup.com/nar/article/48/D1/D180/5608991), which reflect the intersection of overlapping ChIP-seq peaks across different datasets of TRs and biotypes. Coloured according to ReMap schema. |
 
 Installation
 ======

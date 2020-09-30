@@ -60,19 +60,21 @@ Usage:
 ```bash
 USAGE: ./run.pl [chr:start-stop] --biotype [BIOTYPE] --path [/PATH/] <command(s)> <filter(s)>
      
-     The program accepts any of the following six human cell types used by the ENCODE Consortium: GM12878, H1-hESC, K562, HeLa-S3, HepG2, and HUVEC.
+     The program accepts any of the following six human cell, tissue, or DNA sample used by the ENCODE Consortium: GM12878, H1-hESC, K562, HeLa-S3, HepG2, and HUVEC. A description of these samples is available at L<http://genome.ucsc.edu/cgi-bin/hgEncodeVocab?term=GM12878,K562,H1-hESC,HeLa-S3,HepG2,HUVEC>. This option is case- and delimiter-insensitive, and inputs such as H1HESC, helas3, and HEp-g2 are all valid.
+     
      The minimum requirements to run the script are the region, biotype, and path to liftOver.
      
-     If <command(s)> is omitted, the default behaviour of the program is to generate a set of "label files." These can be useful to extract additional statistics or create more complex tracks according to user needs.
+     Additional filter arguments can be passed alongside different commands for added specificity. These correspond to "--repeat," "--regulator," and "--felement," as well as any "--getStats" option. They must be comma-separated and either enclosed within double-quotes, where whitespace is allowed, or devoid of whitespace.
+     ACCEPTABLE:       --regulator "GATA1,CTCF,     SOX2"
+                       --regulator GATA1,CTCF,SOX2
+     UNACCEPTABLE:     --regulator GATA1, CTCF, SOX2
      
-     For simple applications, <command(s)> can be used to output select "track files," track hubs, and summary statistics. 
-     Filter arguments can be passed alongside different commands for added specificity. 
-          
-
+     If <command(s)> is omitted, the default behaviour of the program is to generate a set of "label files." These can be useful to extract additional statistics or create more complex tracks according to user needs. For simple applications, <command(s)> can be used to output select "track files," track hubs, and summary statistics. 
+               
     Commands: (Any number of commands can be used at a single time.)
      --------
       
-      --makeLabels          Make "label files" (exon.bed, intron.bed, intergenic.bed, transcript.bed, coding.bed, noncoding.bed, promoter.bed, repeat.bed, f_element.bed,  and cr_module.bed. Default operation.
+      --makeLabels          Make "label files" (exon.bed, intron.bed, intergenic.bed, transcript.bed, coding.bed, noncoding.bed, promoter.bed, repeat.bed, f_element.bed, and cr_module.bed). Default operation.
       --makeTracks          Make "track files" (genomic.bed, promoter.bed, repeat.bed, f_element.bed, and cr_module.bed). 
       --makeHub             Make a tack data hub that can be imported into the UCSC Genome Browser.
       --getStats            Extract summary statistics.

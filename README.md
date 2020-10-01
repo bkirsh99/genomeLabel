@@ -320,7 +320,7 @@ Memory, Speed, and 'history.txt'
 ======
 The 'history.txt' file is verified upon every call as a means to avoid requesting redundant data. It consists of an ARRAY created using the Storable package, and stores two sets of HASHES - one made up of previous inputs and another one made up of previous bedFeature objects.
 ```bash
-$VAR1 = [ { biotype => {chr => [ start , end ] } } , { source1 => [bedFeatures] , ... , sourceN => [bedFeatures] } ]
+$VAR1 = [ { biotype => {chr => [ [ start , end ] ] } } , { source1 => [bedFeatures] , ... , sourceN => [bedFeatures] } ]
 ```
 
 *This tool was inspired by:*

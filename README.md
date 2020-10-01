@@ -20,6 +20,7 @@ Contents
   - [Example Directory Tree](#example-directory-tree)
     - [Directory Contents](#directory-contents)
   - [Example Data Tracks](#example-data-tracks)
+  - [Memory, Speed, and 'history.txt'](#memory-speed-and-history.txt)
 
 What is genomeLabel?
 ======
@@ -314,6 +315,13 @@ This is an example of the priority levels behind the labelling of the **"Genomic
 **Note:** In order of classification priority, we have: **EXON** (**CDS** > **exon** > **UTR**) > **INTRON** > **INTERGENIC**
 
 ![Image of All Tracks](https://docs.google.com/drawings/d/e/2PACX-1vQu6f0fA1D0bx0ZyYR9ErXmIUtKLcLBKDiEyCQNUNW80IOYvIM7_Ods73hpA_wV-2shq4CUGxppKLrZ/pub?w=960&h=720)
+
+Memory, Speed, and 'history.txt'
+======
+The 'history.txt' file is verified upon every call as a means to avoid requesting redundant data. It consists of an ARRAY created using the Storable package, and stores two sets of HASHES - one made up of previous inputs and another one made up of previous bedFeature objects.
+```bash
+$VAR1 = [ { biotype => {chr => [ start , end ] } } , { source1 => [bedFeatures] , ... , sourceN => [bedFeatures] } ]
+```
 
 *This tool was inspired by:*
 - **davetang/defining_genomic_regions:** https://github.com/davetang/defining_genomic_regions

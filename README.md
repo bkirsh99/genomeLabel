@@ -14,11 +14,10 @@ Contents
 - [Running genomeLabel](#running-genomelabel)
   - [run.pl](#run.pl)
   - [makeHubs.pl](#makehubs.pl)
-  - [getStats.pl](#getstats.pl)
 - [Output of genomeLabel](#output-of-genomelabel)
   - [Example Directory Tree](#example-directory-tree)
-    - [Directory Contents](#directory-contents)
   - [Example Data Tracks](#example-data-tracks)
+  - [Example Summary Statistics](#example-summary-statistics)
   - [Memory, Speed, and 'history.txt'](#memory-speed-and-history.txt)
 
 What is genomeLabel?
@@ -195,23 +194,6 @@ To use the output of *makeHubs.pl* in the UCSC Genome Browser, copy the complete
 
 Alternatively, you can load individual tracks from './out/chr:start-stop@biotype/tracks/<filter(s)>' as custom tracks on UCSC or IGV.
 
-getStats.pl
-------
-The statistics for a region are provided in both totality and relative metrics. The relativity parameters vary by label type:
-
-| |Total Region|Exonic|Intronic|Intergenic|Repetitive|Cis-Regulatory|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Total Region|
-|Coding Element|
-|Noncoding Element|
-|LINE Element|
-|SINE Element|
-|Alu Element|
-|Promoter Element|
-|Enhancer Element|
-|Functional Element|
-|Cis-Regulatory Module|
-
 Output of genomeLabel
 ======
 Example Directory Tree:
@@ -221,16 +203,19 @@ Example Data Tracks:
 ------
 ![Image of Labelling Schema](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
 
-This is an example of the priority levels behind the labelling of the **"Genomic Coding"** track, which is only one of the many tracks generated:
-1. **Genomic Track** - Coding/noncoding exonic, intronic, and intergenic elements
-2. **Promoter Track** - Promoter elements
-3. **Repeat Track** - Repetitive elements
-4. **Functional Element Track** - Putative cell-type-agnostic functional elements
-5. **Cis-Regulatory Module (CRM) Track** - Putative cell-type and transcriptional regulator-agnostic binding sites
+This is an example of the priority levels behind the labelling of the **genome.bed** track, which is only one of the many tracks generated:
+1. **genome.bed** - Coding/noncoding exonic, intronic, and intergenic elements
+2. **promoter.bed** - Promoter elements
+3. **repeat.bed** - Repetitive elements
+4. **f_element.bed** - Putative cell-type-agnostic functional elements
+5. **cr_module.bed** - Putative cell-type and transcriptional regulator-agnostic binding sites
+
+Example Summary Statistics:
+------
 
 Memory, Speed, and 'history.txt'
 ======
-The 'history.txt' file is verified upon every call as a means to avoid requesting redundant data. It consists of an ARRAY created using the Storable package, and stores two sets of HASHES - one made up of previous inputs and another one made up of previous bedFeature objects.
+The 'history.txt' file is verified upon every call as a means to avoid requesting redundant data to the UCSC REST API. It consists of an ARRAY created using the Storable package, and stores two sets of HASHES - one made up of previous inputs and another one made up of previous bedFeature objects.
 ```bash
 $VAR1 = [ { biotype => {chr => [ [ start , end ] ] } } , { source1 => [bedFeatures] , ... , sourceN => [bedFeatures] } ]
 ```

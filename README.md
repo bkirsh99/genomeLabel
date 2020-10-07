@@ -90,7 +90,7 @@ SYNOPSIS
       genes                          A list of the genes and their respective transcripts contained in the input region.
       cvgAbs                         The fraction of distinct bases from the input region covered by each major feature (exon, intron, intergenic, promoter, repetitive element, functional element, and cis-regulatory module). 
       cvgRel                         The fraction of distinct bases from the input region covered by each subcategory of major features. Exons are broken down into coding and noncoding, repetitive elements into their classes, families, and names, functional elements into their respective "genomic state", and cis-regulatory module into the corresponding transcription factor. Defaults to summarizing all major elements, but may be used in the form "cvgRel:<ele>," where <ele> corresponds to "ex," "rp," "fe,", or "crm" to output only individual breakdowns. 
-      cvg:<ele1>-<ele2>               The fraction of distinct bases from element 1 <el1e> covered by overlapping elements 2 <ele2>
+      cvg:<ele1>-<ele2>              The fraction of distinct bases from element 1 <el1e> covered by overlapping elements 2 <ele2>
       
         ACCEPTABLE:       --getStats genes,cvgAbs,cvgRel
                           --getStats cvg:fe-crm

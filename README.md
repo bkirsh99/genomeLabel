@@ -209,7 +209,7 @@ Example Directory Tree:
 
 Example Data Tracks:
 ------
-![Image of Labelling Schema](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
+![Image #1 of Labelling Schema](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
 
 This is an example of the priority levels behind the labelling of the **genome.bed** track, which is only one of the many tracks generated:
 1. **genome.bed** - Coding/noncoding exonic, intronic, and intergenic elements
@@ -218,6 +218,13 @@ This is an example of the priority levels behind the labelling of the **genome.b
 4. **f_element.bed** - Putative cell-type-agnostic functional elements
 5. **cr_module.bed** - Putative cell-type and transcriptional regulator-agnostic binding sites
 
+![Image #2 of Labelling Schema](https://docs.google.com/drawings/d/e/2PACX-1vQu6f0fA1D0bx0ZyYR9ErXmIUtKLcLBKDiEyCQNUNW80IOYvIM7_Ods73hpA_wV-2shq4CUGxppKLrZ/pub?w=258&h=100)
+![#Image #3 of Labelling Schema](https://docs.google.com/drawings/d/1p2kFQ5wg9XvPQug2wujhwCc0eem4cZwUZGdugG7vPP4/edit)
+
+These are examples of the difference between raw and filtered tracks. The command used was **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks** and **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks --repeat LINE,L2,SINE --regulator GATA2 --felement PromF,Tss.** A filtered track was not created for cr_module because there is no data for GATA2 in this biotype, which is verified by:
+```bash
+cat chrX:15200000-15800000@GM12878/tracks/GM12878/cr_module.bed | grep GATA2
+```
 Example Summary Statistics:
 ------
 

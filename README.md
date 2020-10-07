@@ -221,12 +221,15 @@ This is an example of the priority levels behind the labelling of the **genome.b
 ![Image #2 of Labelling Schema](ucsc-v2-filter-tad.PNG)
 ![#Image #3 of Labelling Schema](ucsc-v2-filter-zoom.PNG)
 
-These are examples of the difference between raw and filtered tracks. The command used was **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks** and **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks --repeat LINE,L2,SINE --regulator GATA2 --felement PromF,Tss.** A filtered track was not created for cr_module because there is no data for GATA2 in this biotype, which is verified by:
+These are examples of the difference between raw and filtered tracks. 
+The commands used were **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks** and **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks --repeat LINE,L2,SINE --regulator GATA2 --felement PromF,Tss.**
+A filtered track was not created for cr_module.bed because there is no data for GATA2 in this biotype, which is verifiable by:
 ```bash
 cat chrX:15200000-15800000@GM12878/tracks/GM12878/cr_module.bed | grep GATA2
 ```
 Example Summary Statistics:
 ------
+An important application of genomeLabel is that it allows users to visualize interesting overlapping elements on the genome browser, and revert back to using the tool in order to obtain coverage statistics.
 
 Memory, Speed, and 'history.txt'
 ======

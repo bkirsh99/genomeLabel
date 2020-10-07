@@ -85,7 +85,7 @@ SYNOPSIS
                           --regulator GATA1,CTCF,SOX2
         UNACCEPTABLE:     --regulator GATA1, CTCF, SOX2
 	
-	For "--getStats", filters (or "options") are followed immediately in a comma-separated fashion, as described above. They specify the type and relativity of               statistics to be computed. These include:
+	For "--getStats", filters (or "options") are followed immediately after the <command> in a comma-separated fashion, as described above. They specify the type and relativity of               statistics to be computed. These include:
 
       --genes                          A list of the genes and their respective transcripts contained in the input region.
       --coverage-absolute              The fraction of distinct bases from the input region covered by each major feature (exon, intron, intergenic, promoter, repetitive element, functional element, and cis-regulatory module). 

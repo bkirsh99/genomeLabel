@@ -87,16 +87,13 @@ SYNOPSIS
 	
 	For "--getStats", filters (or "options") are followed immediately after the <command> in a comma-separated fashion, as described above. They specify the type and relativity of               statistics to be computed. These include:
 
-      --genes                          A list of the genes and their respective transcripts contained in the input region.
-      --coverage-absolute              The fraction of distinct bases from the input region covered by each major feature (exon, intron, intergenic, promoter, repetitive element, functional element, and cis-regulatory module). 
-      --coverage-absolute-ex           The fraction of distinct bases from the input region covered by coding and noncoding exons.
-      --coverage-absolute-rp           The fraction of distinct bases from the input region covered by each repetitive element.
-      --coverage-absolute-fe           The fraction of distinct bases from the input region covered by each genomic "state" (Quiescent, ConstitutiveHet, FacultativeHet, Transcribed, Promoter, Enhancer, RegPermissive, Bivalent, and LowConfidance).
-      --coverage-absolute-tf           The fraction of distinct bases from the input region covered by each transcription factor.
-      --coverage-relative <el1> <el2>  The fraction of distinct bases from element 1 <el1> covered by overlapping elements 2 <el2>.
+      genes                          A list of the genes and their respective transcripts contained in the input region.
+      cvgAbs                         The fraction of distinct bases from the input region covered by each major feature (exon, intron, intergenic, promoter, repetitive element, functional element, and cis-regulatory module). 
+      cvgRel                         The fraction of distinct bases from the input region covered by each subcategory of major features. Exons are broken down into coding and noncoding, repetitive elements into their classes, families, and names, functional elements into their respective "genomic state", and cis-regulatory module into the corresponding transcription factor. Defaults to summarizing all major elements, but may be used in the form "cvgRel:<ele>," where <ele> corresponds to "ex," "rp," "fe,", or "crm" to output only individual breakdowns. 
+      cvg:<ele1>-<ele2>               The fraction of distinct bases from element 1 <el1e> covered by overlapping elements 2 <ele2>
       
-      ACCEPTABLE:       --getStats genes,cvgAbs,cvgRel
-                        --getStats cvg:fe-crm
+        ACCEPTABLE:       --getStats genes,cvgAbs,cvgRel
+                          --getStats cvg:fe-crm
      
         If <command(s)> is omitted, the default behaviour of the program is to generate a set of "label files." These can be useful to extract additional statistics or 
 	create more complex tracks according to user needs. For simple applications, <command(s)> can be used to output select "track files," track hubs, and summary
@@ -155,6 +152,7 @@ Quick Start:
 ## Install perl and required perl modules
 ```bash
 sudo apt-get install perl
+sudo cpan Module::Name
 ```
 ## Install bedtools
 ```bash

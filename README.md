@@ -218,8 +218,8 @@ This is an example of the priority levels behind the labelling of the **genome.b
 4. **f_element.bed** - Putative cell-type-agnostic functional elements
 5. **cr_module.bed** - Putative cell-type and transcriptional regulator-agnostic binding sites
 
-![Image #2 of Labelling Schema](https://docs.google.com/drawings/d/e/2PACX-1vQu6f0fA1D0bx0ZyYR9ErXmIUtKLcLBKDiEyCQNUNW80IOYvIM7_Ods73hpA_wV-2shq4CUGxppKLrZ/pub?w=258&h=100)
-![#Image #3 of Labelling Schema](https://docs.google.com/drawings/d/1p2kFQ5wg9XvPQug2wujhwCc0eem4cZwUZGdugG7vPP4/edit)
+![Image #2 of Labelling Schema](https://ibb.co/3SSkBCG)
+![#Image #3 of Labelling Schema](https://ibb.co/xq3Gtry)
 
 These are examples of the difference between raw and filtered tracks. The command used was **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks** and **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks --repeat LINE,L2,SINE --regulator GATA2 --felement PromF,Tss.** A filtered track was not created for cr_module because there is no data for GATA2 in this biotype, which is verified by:
 ```bash

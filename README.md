@@ -159,6 +159,14 @@ git clone https://github.com/arq5x/bedtools2.git
 cd bedtools2
 make clean && make all
 ```
+## Install bedops
+```bash
+git clone https://github.com/bedops/bedops.git
+cd bedops
+make all
+make install_all
+cp bin/* /usr/local/bin
+```
 ## Locate path to liftOver
   ``` bash
   find / -type f -name "liftOver" 2>/dev/null

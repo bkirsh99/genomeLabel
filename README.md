@@ -59,6 +59,61 @@ For an overview of the contents and format of each data set, please read up on a
 Usage:
 ------
 ```bash
+__END__
+=head1 NAME
+genomeLabel - Label genomic features in a region.
+=head1 SYNOPSIS
+	USAGE: ./run.pl [chr:start-stop] --biotype [BIOTYPE] --path [/PATH/] <command(s)> <filter(s)>
+	
+	The program accepts any of the following six human cell, tissue, or DNA sample used by the ENCODE Consortium: GM12878, H1-hESC, K562, HeLa-S3, HepG2, and HUVEC.
+	A description of these samples is available at L<http://genome.ucsc.edu/cgi-bin/hgEncodeVocab?term=GM12878,K562,H1-hESC,HeLa-S3,HepG2,HUVEC>.
+	This option is case- and delimiter-insensitive, and inputs such as H1HESC, helas3, and HEp-g2 are all valid.
+	The minimum requirements to run the script are the region, biotype, and path to liftOver.
+     
+        Additional filter arguments can be passed alongside different commands for added specificity. These correspond to "--repeat," "--regulator," and "--felement," 
+	as well as any "--getStats" option. They must be comma-separated and either enclosed within double-quotes, where whitespace is allowed, or listed subsequently
+	without whitespace in between commas.
+     
+	ACCEPTABLE:       --regulator "GATA1,CTCF,     SOX2"
+                          --regulator GATA1,CTCF,SOX2
+        UNACCEPTABLE:     --regulator GATA1, CTCF, SOX2
+     
+        If <command(s)> is omitted, the default behaviour of the program is to generate a set of "label files." These can be useful to extract additional statistics or 
+	create more complex tracks according to user needs. For simple applications, <command(s)> can be used to output select "track files," track hubs, and summary
+	statistics. 
+=head1 OPTIONS
+=over 4
+=item B<chr:start-stop>
+	Input region in the format chr:start-end.
+=item B<--biotype>
+	One of the six human cell types used by the ENCODE Consortium: GM12878, H1-hESC, K562, HeLa-S3, HepG2, HUVEC. A description of
+	these cell types is available at L<http://genome.ucsc.edu/cgi-bin/hgEncodeVocab?term=GM12878,K562,H1-hESC,HeLa-S3,HepG2,HUVEC>
+=item B<--path>
+	Directory path to liftOver binary file in the format /path/to/utility/ (i.e. enclosed by "/" and excluding the name of the utility itself).
+=item B<--regulator>
+	A list of one or more of the 960 DNA-binding proteins, including transcription factors (TFs), transcription co-activators (TCFs) and 
+	chromatin-remodeling factors (CRFs) used by the ReMap Atlas. Access to ReMap documentation is available at L<http://remap.univ-amu.fr>
+=item B<--repeat>
+	A list of one or more of the families, classes, or names of repeats used by RepeatMasker. Access to RepeatMasker documentation is available
+	at L<http://www.repeatmasker.org/webrepeatmaskerhelp.html>
+=item B<--felement>
+	A list of one or more of the genomic states used by Segway. Access to Segway documentation is available under "Segway Segmentations" at 
+	L<http://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=913156841_uydtGuw88KR9Xqpgn3fXaMtXmsVQ&c=chr15&g=hub_4607_genomeSegmentation>
+=item B<--makeLabels>
+	Default behaviour. Creates unfiltered "labels" that are reported in different files: exon.bed (coding/noncoding exons), intron.bed, transcript.bed,
+intergenic.bed, promoter.bed, repeat.bed, cr_module.bed, and f_element.bed. Used to compute statistical data.
+=item B<--makeTracks>
+	Creates Genome Browser tracks, which are filtered "labels" that are reported in different files: genome.bed (coding/noncoding exons, introns, intergenic
+	regions), promoter.bed, repeat.bed, cr_module.bed, and f_element.bed.
+=item B<--getStats>
+	Generates summary statistics.
+=item B<--help>
+	Prints this message and exits successfully.
+=back
+=head1 DESCRIPTION
+B<genomeLabel> will annotate the genomic features within the given region and work with the contents thereof.
+=cut
+
 USAGE: ./run.pl [chr:start-stop] --biotype [BIOTYPE] --path [/PATH/] <command(s)> <filter(s)>
      
      The program accepts any of the following six human cell, tissue, or DNA sample used by the ENCODE Consortium: GM12878, H1-hESC, K562, HeLa-S3, HepG2, and HUVEC. A description of these samples is available at L<http://genome.ucsc.edu/cgi-bin/hgEncodeVocab?term=GM12878,K562,H1-hESC,HeLa-S3,HepG2,HUVEC>. This option is case- and delimiter-insensitive, and inputs such as H1HESC, helas3, and HEp-g2 are all valid.

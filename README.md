@@ -231,6 +231,11 @@ Example Summary Statistics:
 ------
 An important application of genomeLabel is that it allows users to visualize interesting overlapping elements on the genome browser, and revert back to using the tool in order to obtain coverage statistics.
 
+![Image #1 of Stats](stat-total.PNG)
+![#Image #2 of Stats](stat-crm.PNG)
+![#Image #3 of Stats](stat-fe.PNG)
+![#Image #4 of Stats](stat-overlap.PNG)
+
 Memory, Speed, and 'history.txt'
 ======
 The 'history.txt' file is verified upon every call as a means to avoid requesting redundant data to the UCSC REST API. It consists of an ARRAY created using the Storable package, and stores two sets of HASHES - one made up of previous inputs and another one made up of previous bedFeature objects.

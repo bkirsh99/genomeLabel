@@ -231,10 +231,10 @@ Example Summary Statistics:
 ------
 An important application of genomeLabel is that it allows users to visualize interesting overlapping elements on the genome browser, and revert back to using the tool in order to obtain coverage statistics.
 
-![Image #1 of Stats](stat-total.PNG)
-![#Image #2 of Stats](stat-crm.PNG)
-![#Image #3 of Stats](stat-fe.PNG)
-![#Image #4 of Stats](stat-overlap.PNG)
+![Image #1 of Stats](stat-total.png)
+![#Image #2 of Stats](stat-crm.png)
+![#Image #3 of Stats](stat-fe.png)
+![#Image #4 of Stats](stat-overlap.png)
 
 Memory, Speed, and 'history.txt'
 ======

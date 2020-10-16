@@ -36,7 +36,7 @@ my ($chr,$start,$end) = split /[:-]+/, $dir;
 my @repfilter = $repfilter eq "raw" ? [] : split(/_/,$repfilter);
 my @regfilter = $crmodfilter eq "raw" ? [] : split(/_/,$crmodfilter);
 my @fefilter = $felefilter eq "raw" ? [] : split(/_/, $felefilter);
-@repfilter = @repfilter[2..$#repfilter];
+@repfilter = @repfilter[1..$#repfilter];
 @regfilter = @regfilter[2..$#regfilter];
 @fefilter = @fefilter[2..$#fefilter];
 

@@ -262,6 +262,15 @@ cat chrX:15200000-15800000@GM12878/tracks/GM12878/cr_module.bed | grep GATA2
 Example Summary Statistics:
 ------
 An important application of genomeLabel is that it allows users to visualize interesting overlapping elements on the genome browser, and revert back to using the tool in order to obtain coverage statistics.
+**Gene feature statistics:** Summary information about the organization of the genetic region. Similar to [GeneBase 1.1](http://apollo11.isto.unibo.it/software/GeneBase/GeneBase_1.1.1_2019/GeneBase_Tutorial.html), this option outputs the median, mean, standard deviation, and total for many quantitative parameters associated with genes, gene transcripts and gene features (exons, introns, coding sequences, untranslated regions).
+
+|Gene_Symbol|Coding_Status|Transcript_Count|RefSeq_Accession|Gene_Length(bp)|Transcript_Length(bp)|CDS_Length(bp)|UTR_Length(bp)|Coding_Exons_per_RNA|Noncoding_Exons_per_RNA|Introns_per_RNA
+
+|Statistical_Summary|Gene_Count|Transcript_Length(bp)|CDS_Length(bp)|UTR_Length(bp)|Coding_Exons_per_RNA|Noncoding_Exons_per_RNA|Introns_per_RNA
+Meadian(bp)
+Mean(bp)
+Standard_Deviation(bp)
+Total(bp)
 
 ![Image #1 of Stats](stat-total.png)
 ![#Image #2 of Stats](stat-crm.png)

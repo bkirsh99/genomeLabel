@@ -237,6 +237,7 @@ genomeLabel
 ├── hg38.chrom.sizes
 ├── hg38.ncbiRefSeq.gtf.gz
 └── history.txt
+```
 
 Example Data Tracks:
 ------

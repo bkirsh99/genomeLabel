@@ -210,6 +210,33 @@ Output of genomeLabel
 ======
 Example Directory Tree:
 ------
+```bash
+genomeLabel
+├── bedFeature.pm
+├── fetchFeature.pm
+├── run.pl
+├── init.pl
+├── makeLabels.pl
+├── makeTracks.pl
+├── getStats.pl
+├── chrX:15000000-15800000
+│   ├── filtered_K562_CTCF_GATA2_cr-module.bed
+│   ├── filtered_K562_Quies_Repr5_f-element.bed
+│   ├── filtered_LINE_SINE_repeat.bed
+│   ├── raw_genome.bed
+│   └── raw_promoter.bed
+├── chrX:15500000-15800000
+│   ├── filtered_K562_CTCF_GATA2_cr-module.bed
+│   ├── filtered_K562_Quies_Repr5_f-element.bed
+│   ├── filtered_K562_f-element.bed
+│   ├── filtered_LINE_SINE_repeat.bed
+│   ├── raw_exon.bed
+│   ├── raw_genome.bed
+│   └── raw_promoter.bed
+├── hg19ToHg38.over.chain.gz
+├── hg38.chrom.sizes
+├── hg38.ncbiRefSeq.gtf.gz
+└── history.txt
 
 Example Data Tracks:
 ------

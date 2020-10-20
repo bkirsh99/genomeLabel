@@ -71,9 +71,11 @@ SYNOPSIS
 	
 	./run.pl chrX:15200000-15800000 --biotype huvec --path /home/bkirsh/ --makeTracks --repeat LINE,L2,SINE --regulator GATA2
 	
-	The program accepts any of the following six human cell, tissue, or DNA sample used by the ENCODE Consortium: GM12878, H1-hESC, K562, HeLa-S3, HepG2, and HUVEC.
+	The program accepts any of the following six human cell, tissue, or DNA sample used by the ENCODE Consortium:
+		GM12878, H1-hESC, K562, HeLa-S3, HepG2, and HUVEC.
 	A description of these samples is available at http://genome.ucsc.edu/cgi-bin/hgEncodeVocab?term=GM12878,K562,H1-hESC,HeLa-S3,HepG2,HUVEC.
 	This option is case- and delimiter-insensitive, and inputs such as H1HESC, helas3, and HEp-g2 are all valid.
+	
 	The minimum requirements to run the script are the region, biotype, and path to liftOver.
 	
 	The available <command(s)> are: "--makeLabels," "--makeTracks," and "--getStats."
@@ -139,6 +141,8 @@ intergenic.bed, promoter.bed, repeat.bed, cr_module.bed, and f_element.bed. Used
 | ![#ff007f](https://via.placeholder.com/15/ff007f/000000?text=+) Repetitive Element | Regulatory DNA sequences identified by [RepeatMasker](http://www.repeatmasker.org/), which reflect interspersed repeats and low complexity DNA sequences.
 | Functional Element | Putative transcriptional and regulatory DNA sequences identified by [Segway](https://www.biorxiv.org/content/10.1101/086025v3.full), which reflect DNA binding and accessibility  across different cell types (e.g. quiescent, enhancer, promoter, bivalent, etc.).Coloured according to Segway schema. |
 | Cis-Regulatory Module (CRM) | Putative binding sites for transcriptional regulators identified by [ReMap](https://academic.oup.com/nar/article/48/D1/D180/5608991), which reflect the intersection of overlapping ChIP-seq peaks across different datasets of TRs and biotypes. Coloured according to ReMap schema. |
+
+![Image of Segway Schema](segway-genomic-states.PNG)
 
 Installation
 ======

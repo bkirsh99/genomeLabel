@@ -26,7 +26,7 @@ What is genomeLabel?
 **genomeLabel** is a command line tool for the fully automated generation of genomic label data that can be summarized into statistically relevant information and visualized in a genome browser, tab-separated tables, and plots.
 The labels annotate the genome both structurally and functionally, providing insight into the potentially regulatory role of certain regions via colocalization analysis methods.
 
-The genomeLabel tool is implemented in **Perl and Python** and automatically executes commands provided by **bedtools and bedops** to annotate the Genome Reference Consortium Human Build 38 **(hg38)** assembly. Integration with **[GIGGLE]**(https://www.nature.com/articles/nmeth.4556) further expands the functionality of genomeLabel to identifying and ranking the significance of genomic loci shared between query features and thousands of genome interval files present in the *giggle_files* directory.
+The genomeLabel tool is implemented in **Perl and Python** and automatically executes commands provided by **bedtools and bedops** to annotate the Genome Reference Consortium Human Build 38 **(hg38)** assembly. Integration with **[GIGGLE](https://www.nature.com/articles/nmeth.4556)** further expands the functionality of genomeLabel to identifying and ranking the significance of genomic loci shared between query features and thousands of genome interval files present in the *giggle_files* directory.
 
 For display by the UCSC Genome Browser, a script 'makeHubs.pl' can be used. Hoewever, assembly hubs need to be hosted on a publicly accessible web server provided by the user.
 
@@ -267,6 +267,9 @@ A filtered track was not created for cr_module.bed because there is no data for 
 ```bash
 cat chrX:15200000-15800000@GM12878/tracks/GM12878/cr_module.bed | grep GATA2
 ```
+Integration with GIGGLE:
+------
+
 Example Summary Statistics:
 ------
 An important application of genomeLabel is that it allows users to visualize interesting overlapping elements on the genome browser, and revert back to using the tool in order to obtain coverage statistics.

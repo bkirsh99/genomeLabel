@@ -161,16 +161,13 @@ sudo cpan Module::Name
 sudo apt-get install python-pip 
 sudo pip install package
 ```
-## Install GIGGLE and required GIGGLE dependencies
-```bash
-sudo apt-get install python-pip 
-sudo pip install package
-```
 ## Install bedtools
 ```bash
 git clone https://github.com/arq5x/bedtools2.git
 cd bedtools2
-make clean && make all
+make
+cd ..
+export PATH=$PATH:`which bedtools`
 ```
 ## Install bedops
 ```bash
@@ -191,6 +188,19 @@ git clone https://github.com/bkirsh99/genomeLabel.git
 ## Navigate to the genomeLabel directory
 ```bash
 cd ${genomeLabel_DIR}
+```
+## Install GIGGLE and required GIGGLE dependencies
+```bash
+git clone https://github.com/ryanlayer/giggle.git
+cd giggle
+make
+export GIGGLE_ROOT=`pwd`
+cd lib/htslib
+export PATH=$PATH:`pwd`
+cd ../../..
+
+wget -O gargs https://github.com/brentp/gargs/releases/download/v0.3.6/gargs_linux
+chmod +x gargs
 ```
 
 Running genomeLabel
@@ -269,7 +279,37 @@ cat chrX:15200000-15800000@GM12878/tracks/GM12878/cr_module.bed | grep GATA2
 ```
 Integration with GIGGLE:
 ------
+In its default behaviour, genomeLabel produces the "giggle_files" directory, as exemplified below:
+```bash
+chrX:15200000-15800000/giggle_files
+├── cr-module
+│   └── factor
+├── exon
+│   ├── gene
+│   └── transcript
+├── f-element
+│   └── state
+├── intron
+│   ├── gene
+│   └── transcript
+├── promoter
+│   └── promoter
+├── repeat
+│   ├── class
+│   ├── family
+│   └── name
+└── transcript
+    ├── gene
+    └── transcript
+```
+Each directory within the "giggle_files" directory tree corresponds to the different levels (e.g. repeat class, family, or name) or preferred labels (e.g. gene name or transcript name) for the different annotated bed files. As such, countless permutations of index and query files can be generated and applied by the GIGGLE tool. Detailed instructions and examples of how to run GIGGLE are available at https://github.com/ryanlayer/giggle.
+Sample GIGGLE calls include:
+```bash
+mkdir split_sort
+bash $GIGGLE_ROOT/scripts/sort_bed "split/*.bed" split_sort/ > /dev/null
 
+$GIGGLE_ROOT/bin/giggle index -i "split2_sort/*gz" -o split_sort_b -f -s 2> /dev/null
+```
 Example Summary Statistics:
 ------
 An important application of genomeLabel is that it allows users to visualize interesting overlapping elements on the genome browser, and revert back to using the tool in order to obtain coverage statistics.

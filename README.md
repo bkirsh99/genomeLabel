@@ -17,7 +17,7 @@ Contents
 - [Output of genomeLabel](#output-of-genomelabel)
   - [Example Directory Tree](#example-directory-tree)
   - [Example Data Tracks](#example-data-tracks)
-  - [Integration with GIGGLE])(#integration-wih-giggle)
+  - [Integration with GIGGLE](#integration-with-giggle)
   - [Example Summary Statistics](#example-summary-statistics)
   - [Memory, Speed, and 'history.txt'](#memory-speed-and-history.txt)
 

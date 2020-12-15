@@ -17,6 +17,7 @@ Contents
 - [Output of genomeLabel](#output-of-genomelabel)
   - [Example Directory Tree](#example-directory-tree)
   - [Example Data Tracks](#example-data-tracks)
+  - [Integration with GIGGLE])(#integration-wih-giggle)
   - [Example Summary Statistics](#example-summary-statistics)
   - [Memory, Speed, and 'history.txt'](#memory-speed-and-history.txt)
 
@@ -156,6 +157,11 @@ sudo apt-get install perl
 sudo cpan Module::Name
 ```
 ## Install Python 2.7 and required Python packages
+```bash
+sudo apt-get install python-pip 
+sudo pip install package
+```
+## Install GIGGLE and required GIGGLE dependencies
 ```bash
 sudo apt-get install python-pip 
 sudo pip install package

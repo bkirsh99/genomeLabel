@@ -100,7 +100,7 @@ Arguments and sample calls include:
                           --getStats cvg:fe-crm
      
         If <command(s)> is omitted, the default behaviour of the program is to generate a set of "raw files" and the "giggle_files" directory for a given
-region and biotype. The "raw files" include genome.bed (coding/noncoding exons, introns, intergenic regions), promoter.bed, repeat.bed, cr_module.bed, and f_element.bed, while the "giggle_files" is a directory tree of their breakdown into different categories and subcategories. These can be useful for customized manipulation 
+region and biotype. The "raw files" include genome.bed (coding/noncoding exons, introns, intergenic regions), promoter.bed, repeat.bed, cr-module.bed, f-element.bed, and cat.bed, while the "giggle_files" is a directory tree of their breakdown into different categories and subcategories. These can be useful for customized manipulation 
 to extract additional statistics or create more complex tracks via concatenation or application of external tools according to user needs. 
 
 OPTIONS
@@ -230,52 +230,27 @@ Output of genomeLabel
 Example Directory Tree:
 ------
 ```bash
-genomeLabel
-├── bedFeature.pm
-├── fetchFeature.pm
-├── run.pl
-├── init.pl
-├── make.pl
-├── getStats.pl
-├── chrX:15000000-15800000
-│   ├── filtered_K562_CTCF_GATA2_cr-module.bed
-│   ├── filtered_K562_Quies_Repr5_f-element.bed
-│   ├── filtered_LINE_SINE_repeat.bed
-│   ├── raw_genome.bed
-│   └── raw_promoter.bed
-├── chrX:15500000-15800000
-│   ├── filtered_K562_CTCF_GATA2_cr-module.bed
-│   ├── filtered_K562_Quies_Repr5_f-element.bed
-│   ├── filtered_K562_f-element.bed
-│   ├── filtered_LINE_SINE_repeat.bed
-│   ├── raw_exon.bed
-│   ├── raw_genome.bed
-│   └── raw_promoter.bed
-├── hg19ToHg38.over.chain.gz
-├── hg38.chrom.sizes
-├── hg38.ncbiRefSeq.gtf.gz
-└── history.txt
+
 ```
 
 Example Data Tracks:
 ------
 ![Image #1 of Labelling Schema](https://docs.google.com/drawings/d/e/2PACX-1vQ51t4D1h96WMh588J429qSXkb_Fa6Cg_PhF3FHI4t2yPqMk1nzN0g54jFnf6wyD3hjs0qZS0brCaf3/pub?w=960&h=720)
 
-This is an example of the priority levels behind the labelling of the **genome.bed** track, which is only one of the many tracks generated:
-1. **genome.bed** - Coding/noncoding exonic, intronic, and intergenic elements
-2. **promoter.bed** - Promoter elements
-3. **repeat.bed** - Repetitive elements
-4. **f_element.bed** - Putative cell-type-agnostic functional elements
-5. **cr_module.bed** - Putative cell-type and transcriptional regulator-agnostic binding sites
+This is an example of the priority levels behind the labelling of the **raw_genome.bed** track, which is only one of the many tracks generated:
+1. **raw_genome.bed** - Coding/noncoding exonic, intronic, and intergenic elements
+2. **raw_promoter.bed** - Promoter elements
+3. **raw_repeat.bed** - Repetitive elements
+4. **filtered_BIOTYPE_f-element.bed** - Putative cell-type-agnostic functional elements
+5. **filtered_BIOTYPE_cr-module.bed** - Putative cell-type and transcriptional regulator-agnostic binding sites
 
 ![Image #2 of Labelling Schema](ucsc-v2-filter-tad.PNG)
 ![#Image #3 of Labelling Schema](ucsc-v2-filter-zoom.PNG)
 
 These are examples of the difference between raw and filtered tracks. 
-The commands used were **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/** and **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --repeat LINE,L2,SINE --regulator GATA2 --felement PromF,Tss.**
-A filtered track was not created for cr_module.bed because there is no data for GATA2 in this biotype, which is verifiable by:
+The commands used were **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/** and **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --repeat LINE,L2,SINE --regulator GATA2 --felement PromF,Tss.** The second call adds two files to the **chrX:15200000-15800000** directory, namely **filtered_GM12878_LINE_L2_SINE_repeat.bed and filtered_GM12878_PromF_Tss_f-element.bed**. A filtered track was not created for cr-module.bed because there is no data for GATA2 in this biotype, which is verifiable by:
 ```bash
-cat chrX:15200000-15800000@GM12878/tracks/GM12878/cr_module.bed | grep GATA2
+cat chrX:15200000-15800000/filtered_GM12878_cr-module.bed | grep GATA2
 ```
 Integration with GIGGLE:
 ------

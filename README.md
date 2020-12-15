@@ -25,7 +25,7 @@ What is genomeLabel?
 **genomeLabel** is a command line tool for the fully automated generation of genomic label data that can be summarized into statistically relevant information and visualized in a genome browser, tab-separated tables, and plots.
 The labels annotate the genome both structurally and functionally, providing insight into the potentially regulatory role of certain regions via colocalization analysis methods.
 
-The genomeLabel tool is implemented in **Perl and Python** and automatically executes commands provided by **bedtools and bedops** to annotate the Genome Reference Consortium Human Build 38 **(hg38)** assembly. Integration with [GIGGLE](https://www.nature.com/articles/nmeth.4556#Sec2) further expands the functionality of genomeLabel to identifying and ranking the significance of genomic loci shared between query features and thousands of genome interval files present in the *giggle_files* directory.
+The genomeLabel tool is implemented in **Perl and Python** and automatically executes commands provided by **bedtools and bedops** to annotate the Genome Reference Consortium Human Build 38 **(hg38)** assembly. Integration with **[GIGGLE]**(https://www.nature.com/articles/nmeth.4556) further expands the functionality of genomeLabel to identifying and ranking the significance of genomic loci shared between query features and thousands of genome interval files present in the *giggle_files* directory.
 
 For display by the UCSC Genome Browser, a script 'makeHubs.pl' can be used. Hoewever, assembly hubs need to be hosted on a publicly accessible web server provided by the user.
 
@@ -65,11 +65,10 @@ SYNOPSIS
 	
 	SAMPLE CALLS:
 	./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/
-		(this call is synonymous with ./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeLabels)
 		
-	./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks --repeat LINE --regulator GATA2
+	./run.pl chrX:15200000-15800000 --biotype GM12878 --path /home/bkirsh/ --repeat LINE --regulator GATA2
 	
-	./run.pl chrX:15200000-15800000 --biotype huvec --path /home/bkirsh/ --makeTracks --repeat LINE,L2,SINE --regulator GATA2
+	./run.pl chrX:15200000-15800000 --biotype huvec --path /home/bkirsh/ --repeat LINE,L2,SINE --regulator GATA2
 	
 	The program accepts any of the following six human cell, tissue, or DNA sample used by the ENCODE Consortium:
 		GM12878, H1-hESC, K562, HeLa-S3, HepG2, and HUVEC.
@@ -78,15 +77,18 @@ SYNOPSIS
 	
 	The minimum requirements to run the script are the region, biotype, and path to liftOver.
 	
-	The available <command(s)> are: "--makeLabels," "--makeTracks," and "--getStats."
+	The available <command(s)> are: "--makeHub" and "--getStats."
      
-        Additional filter arguments can be passed alongside different commands for added specificity. For "--makeLabels" and "--makeTracks," these correspond to "--             repeat," "--regulator," and "--felement." They must be comma-separated and either enclosed within double-quotes, where whitespace is allowed, or listed                   subsequently without whitespace in between commas.
+        Additional filter arguments can be passed alongside different commands for added specificity, including "--repeat," "--regulator," and "--felement." 
+They must be comma-separated and either enclosed within double-quotes, where whitespace is allowed, or listed subsequently without whitespace in between commas.
      
 	ACCEPTABLE:       --regulator "GATA1,CTCF,     SOX2"
                           --regulator GATA1,CTCF,SOX2
         UNACCEPTABLE:     --regulator GATA1, CTCF, SOX2
 	
-	For "--getStats", filters (or "options") are followed immediately after the <command> in a comma-separated fashion, as described above. They specify the type and relativity of               statistics to be computed. These include:
+	The "--getStats" option can only be used on the results file(s) created by the GIGGLE search engine. The arguments are followed immediately after 
+the <command> in a comma-separated fashion, as described above. They specify the path to the results file(s), as well as the variables to summarize and plot. 
+Arguments and sample calls include:
 
       genes                          A list of the genes and their respective transcripts contained in the input region.
       cvgAbs                         The fraction of distinct bases from the input region covered by each major feature (exon, intron, intergenic, promoter, repetitive element, functional element, and cis-regulatory module). 
@@ -96,9 +98,9 @@ SYNOPSIS
         ACCEPTABLE:       --getStats genes,cvgAbs,cvgRel
                           --getStats cvg:fe-crm
      
-        If <command(s)> is omitted, the default behaviour of the program is to generate a set of "label files." These can be useful to extract additional statistics or 
-	create more complex tracks according to user needs. For simple applications, <command(s)> can be used to output select "track files," track hubs, and summary
-	statistics. 
+        If <command(s)> is omitted, the default behaviour of the program is to generate a set of "raw files" and the "giggle_files" directory for a given
+region and biotype. The "raw files" include genome.bed (coding/noncoding exons, introns, intergenic regions), promoter.bed, repeat.bed, cr_module.bed, and f_element.bed, while the "giggle_files" is a directory tree of their breakdown into different categories and subcategories. These can be useful for customized manipulation 
+to extract additional statistics or create more complex tracks via concatenation or application of external tools according to user needs. 
 
 OPTIONS
 
@@ -118,12 +120,8 @@ OPTIONS
 <--felement>
 	A list of one or more of the genomic states used by Segway. Access to Segway documentation is available under "Segway Segmentations" at 
 	http://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=913156841_uydtGuw88KR9Xqpgn3fXaMtXmsVQ&c=chr15&g=hub_4607_genomeSegmentation.
-<--makeLabels>
-	Default behaviour. Creates unfiltered "labels" that are reported in different files: exon.bed (coding/noncoding exons), intron.bed, transcript.bed,
-intergenic.bed, promoter.bed, repeat.bed, cr_module.bed, and f_element.bed. Used to compute statistical data.
-<--makeTracks>
-	Creates Genome Browser tracks, which are filtered "labels" that are reported in different files: genome.bed (coding/noncoding exons, introns, intergenic
-	regions), promoter.bed, repeat.bed, cr_module.bed, and f_element.bed.
+<--makeHub>
+	Generates hub.
 <--getStats>
 	Generates summary statistics.
 <--help>
@@ -148,14 +146,19 @@ Installation
 ======
 Dependencies:
 ------
-genomeLabel contains different perl scripts that require bedtools, bedops, and liftOver. The latter two are made available by [UCSC utilities](http://hgdownload.soe.ucsc.edu/admin/exe).
+genomeLabel contains different Perl and Python scripts that require bedtools, bedops, and liftOver. The latter is made available by [UCSC utilities](http://hgdownload.soe.ucsc.edu/admin/exe).
 
 Quick Start:
 ------
-## Install perl and required perl modules
+## Install Perl and required Perl modules
 ```bash
 sudo apt-get install perl
 sudo cpan Module::Name
+```
+## Install Python 2.7 and required Python packages
+```bash
+sudo apt-get install python-pip 
+sudo pip install package
 ```
 ## Install bedtools
 ```bash
@@ -216,8 +219,7 @@ genomeLabel
 ├── fetchFeature.pm
 ├── run.pl
 ├── init.pl
-├── makeLabels.pl
-├── makeTracks.pl
+├── make.pl
 ├── getStats.pl
 ├── chrX:15000000-15800000
 │   ├── filtered_K562_CTCF_GATA2_cr-module.bed
@@ -254,7 +256,7 @@ This is an example of the priority levels behind the labelling of the **genome.b
 ![#Image #3 of Labelling Schema](ucsc-v2-filter-zoom.PNG)
 
 These are examples of the difference between raw and filtered tracks. 
-The commands used were **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks** and **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --makeTracks --repeat LINE,L2,SINE --regulator GATA2 --felement PromF,Tss.**
+The commands used were **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/** and **./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/ --repeat LINE,L2,SINE --regulator GATA2 --felement PromF,Tss.**
 A filtered track was not created for cr_module.bed because there is no data for GATA2 in this biotype, which is verifiable by:
 ```bash
 cat chrX:15200000-15800000@GM12878/tracks/GM12878/cr_module.bed | grep GATA2
@@ -283,7 +285,4 @@ The 'history.txt' file is verified upon every call as a means to avoid requestin
 ```bash
 $VAR1 = [ { biotype => {chr => [ [ start , end ] ] } } , { source1 => [bedFeatures] , ... , sourceN => [bedFeatures] } ]
 ```
-
-*This tool was inspired by:*
-- **davetang/defining_genomic_regions:** https://github.com/davetang/defining_genomic_regions
-- **cschlaffner/TrackHubGenerator:**  https://github.com/cschlaffner/TrackHubGenerator
+Should you encounter any problems with the generation of files that contain the correct information for your desired coordinates and filters, the issue most likely lies in "history.txt." Please delete the file and run the command again. While this will take longer, it will ensure that the output is correct.

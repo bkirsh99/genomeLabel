@@ -151,6 +151,14 @@ genomeLabel contains different Perl and Python scripts that require bedtools, be
 
 Quick Start:
 ------
+## Clone repository
+```bash
+git clone https://github.com/bkirsh99/genomeLabel.git
+```
+## Navigate to the genomeLabel directory
+```bash
+cd ${genomeLabel_DIR}
+```
 ## Install Perl and required Perl modules
 ```bash
 sudo apt-get install perl
@@ -181,14 +189,6 @@ cp bin/* /usr/local/bin
   ``` bash
   find / -type f -name "liftOver" 2>/dev/null
   ```
-## Clone repository
-```bash
-git clone https://github.com/bkirsh99/genomeLabel.git
-```
-## Navigate to the genomeLabel directory
-```bash
-cd ${genomeLabel_DIR}
-```
 ## Install GIGGLE and required GIGGLE dependencies
 ```bash
 git clone https://github.com/ryanlayer/giggle.git
@@ -277,14 +277,34 @@ chrX:15200000-15800000/giggle_files
     ├── gene
     └── transcript
 ```
-Each directory within the "giggle_files" directory tree corresponds to the different levels (e.g. repeat class, family, or name) or preferred labels (e.g. gene name or transcript name) for the different annotated bed files. As such, countless permutations of index and query files can be generated and applied by the GIGGLE tool. Detailed instructions and examples of how to run GIGGLE are available at https://github.com/ryanlayer/giggle.
-Sample GIGGLE calls include:
+Each directory within the "giggle_files" directory tree corresponds to the different levels (e.g. repeat class, family, or name) or preferred labels (e.g. gene name or transcript name) available within the annotated bed files.
+As such, countless permutations of index and query files can be generated and applied by the GIGGLE tool. Detailed instructions and examples of how to run GIGGLE independently are available at https://github.com/ryanlayer/giggle. Alternatively, genomeLabel is equipped with the **run_giggle.py** script to automate this process.
+
+## Sample independent GIGGLE calls:
 ```bash
 mkdir split_sort
-bash $GIGGLE_ROOT/scripts/sort_bed "split/*.bed" split_sort/ > /dev/null
-
-$GIGGLE_ROOT/bin/giggle index -i "split2_sort/*gz" -o split_sort_b -f -s 2> /dev/null
+bash $GIGGLE_ROOT/scripts/sort_bed "chrX:15200000-15800000/giggle_files/cr-module/factor/*" split_sort/ > /dev/null
+$GIGGLE_ROOT/bin/giggle index -i "split_sort/*" -o split_sort_b -f -s 2> /dev/null
 ```
+### 1) Region search:
+```bash
+$GIGGLE_ROOT/bin/giggle search -i split_sort_b -r X:15200000-15800000 > cr-module.result
+
+```
+### 2) Query file search:
+```bash
+bgzip chrX:15200000-15800000/giggle_files/transcript/gene/ACE2.bed
+$GIGGLE_ROOT/bin/giggle search -i split_sort_b -q chrX:15200000-15800000/giggle_files/transcript/gene/ACE2.bed.gz > cr-module_ACE2.result
+```
+
+### 3) Query directory search:
+```bash
+for filename in chrX:15200000-15800000/giggle_files/transcript/gene/*; do bgzip $filename; done
+mkdir cr-module_transcript_results
+ls chrX:15200000-15800000/giggle_files/transcript/gene | ./gargs -p 10 '$GIGGLE_ROOT/bin/giggle search -i split_sort_b -q chrX:15200000-15800000/giggle_files/transcript/gene/{} -s > cr-module_transcript_results/{}.results'
+```
+## Sample run_giggle.py calls:
+
 Example Summary Statistics:
 ------
 An important application of genomeLabel is that it allows users to visualize interesting overlapping elements on the genome browser, and revert back to using the tool in order to obtain coverage statistics.

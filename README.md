@@ -62,7 +62,7 @@ Usage:
 genomeLabel - A tool to  annotate the genomic features within a given region and work with the contents thereof to produce genome browser tracks and compute summary statistics.
 
 SYNOPSIS
-	USAGE: ./run.pl [chr:start-stop] --biotype [BIOTYPE] --path [/PATH/] <command(s)> <filter(s)>
+	USAGE: ./run.pl [chr:start-stop] --biotype [BIOTYPE] --path [/PATH/] <filter(s)>
 	
 	SAMPLE CALLS:
 	./run.pl chrX:15200000-15800000 --biotype gm12878 --path /home/bkirsh/
@@ -77,8 +77,6 @@ SYNOPSIS
 	This option is case- and delimiter-insensitive, and inputs such as H1HESC, helas3, and HEp-g2 are all valid.
 	
 	The minimum requirements to run the script are the region, biotype, and path to liftOver.
-	
-	The available <command(s)> are: "--makeHub" and "--getStats."
      
         Additional filter arguments can be passed alongside different commands for added specificity, including "--repeat," "--regulator," and "--felement." 
 They must be comma-separated and either enclosed within double-quotes, where whitespace is allowed, or listed subsequently without whitespace in between commas.
@@ -87,19 +85,8 @@ They must be comma-separated and either enclosed within double-quotes, where whi
                           --regulator GATA1,CTCF,SOX2
         UNACCEPTABLE:     --regulator GATA1, CTCF, SOX2
 	
-	The "--getStats" option can only be used on the results file(s) created by the GIGGLE search engine. The arguments are followed immediately after 
-the <command> in a comma-separated fashion, as described above. They specify the path to the results file(s), as well as the variables to summarize and plot. 
-Arguments and sample calls include:
-
-      genes                          A list of the genes and their respective transcripts contained in the input region.
-      cvgAbs                         The fraction of distinct bases from the input region covered by each major feature (exon, intron, intergenic, promoter, repetitive element, functional element, and cis-regulatory module). 
-      cvgRel                         The fraction of distinct bases from the input region covered by each subcategory of major features. Exons are broken down into coding and noncoding, repetitive elements into their classes, families, and names, functional elements into their respective "genomic state", and cis-regulatory module into the corresponding transcription factor. Defaults to summarizing all major elements, but may be used in the form "cvgRel:<ele>," where <ele> corresponds to "ex," "rp," "fe,", or "crm" to output only individual breakdowns. 
-      cvg:<ele1>-<ele2>              The fraction of distinct bases from element 1 <el1e> covered by overlapping elements 2 <ele2>
-      
-        ACCEPTABLE:       --getStats genes,cvgAbs,cvgRel
-                          --getStats cvg:fe-crm
-     
-        If <command(s)> is omitted, the default behaviour of the program is to generate a set of "raw files" and the "giggle_files" directory for a given
+	
+      If <filter(s)> is omitted, the default behaviour of the program is to generate a set of "raw files" and the "giggle_files" directory for a given
 region and biotype. The "raw files" include genome.bed (coding/noncoding exons, introns, intergenic regions), promoter.bed, repeat.bed, cr-module.bed, f-element.bed, and cat.bed, while the "giggle_files" is a directory tree of their breakdown into different categories and subcategories. These can be useful for customized manipulation 
 to extract additional statistics or create more complex tracks via concatenation or application of external tools according to user needs. 
 
@@ -121,12 +108,15 @@ OPTIONS
 <--felement>
 	A list of one or more of the genomic states used by Segway. Access to Segway documentation is available under "Segway Segmentations" at 
 	http://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=913156841_uydtGuw88KR9Xqpgn3fXaMtXmsVQ&c=chr15&g=hub_4607_genomeSegmentation.
-<--makeHub>
-	Generates hub.
-<--getStats>
-	Generates summary statistics.
 <--help>
 	Prints this message and exits successfully.
+```
+
+```
+bash
+SYNOPSIS
+	USAGE: ./stats_giggle.py -i [input] <option(s)>
+	
 ```
 
 |Label | Definition|

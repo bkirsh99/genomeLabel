@@ -112,8 +112,7 @@ OPTIONS
 	Prints this message and exits successfully.
 ```
 
-```
-bash
+```bash
 SYNOPSIS
 	USAGE: ./stats_giggle.py -i [input] <option(s)>
 	

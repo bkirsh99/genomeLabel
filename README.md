@@ -278,7 +278,8 @@ chrX:15200000-15800000/giggle_files
     └── transcript
 ```
 Each directory within the "giggle_files" directory tree corresponds to the different levels (e.g. repeat class, family, or name) or preferred labels (e.g. gene name or transcript name) available within the annotated bed files.
-As such, countless permutations of index and query files can be generated and applied by the GIGGLE tool. Detailed instructions and examples of how to run GIGGLE independently are available at https://github.com/ryanlayer/giggle. Alternatively, genomeLabel is equipped with the **run_giggle.py** script to automate this process.
+As such, countless permutations of index and query files can be generated and applied by the GIGGLE tool. Detailed instructions and examples of how to run GIGGLE independently are available at https://github.com/ryanlayer/giggle
+
 
 ## Sample independent GIGGLE calls:
 ```bash
@@ -294,7 +295,7 @@ $GIGGLE_ROOT/bin/giggle search -i split_sort_b -r X:15200000-15800000 > cr-modul
 ### 2) Query file search:
 ```bash
 bgzip chrX:15200000-15800000/giggle_files/transcript/gene/ACE2.bed
-$GIGGLE_ROOT/bin/giggle search -i split_sort_b -q chrX:15200000-15800000/giggle_files/transcript/gene/ACE2.bed.gz > cr-module_ACE2.result
+$GIGGLE_ROOT/bin/giggle search -i split_sort_b -q chrX:15200000-15800000/giggle_files/transcript/gene/ACE2.bed.gz -s > cr-module_ACE2.result
 ```
 
 ### 3) Query directory search:
@@ -303,7 +304,22 @@ for filename in chrX:15200000-15800000/giggle_files/transcript/gene/*; do bgzip 
 mkdir cr-module_transcript_results
 ls chrX:15200000-15800000/giggle_files/transcript/gene | ./gargs -p 10 '$GIGGLE_ROOT/bin/giggle search -i split_sort_b -q chrX:15200000-15800000/giggle_files/transcript/gene/{} -s > cr-module_transcript_results/{}.results'
 ```
-## Sample run_giggle.py calls:
+
+The GIGGLE results consist of a single file or multiple files located within the same directory. In either case, genomeLabel's **stats_giggle.py** script can be used to summmarize and visualize the output when the reults are derived from a GIGGLE call that uses at least one query file with the option "-s."
+
+## Sample stats_giggle.py calls:
+### 1) Show top 5 highest scoring index files (e.g. transcription factors) for each query file (e.g. transcript), ranked by combo_score (default):
+```bash
+./stats_giggle.py -i "cr-module_transcript_results/"
+```
+### 2) Show top 20 highest scoring index files (e.g. transcription factors) for each query file (e.g. transcript), ranked by number of overlapping intervals:
+```bash
+./stats_giggle.py -i "cr-module_transcript_results/" --by overlaps -n 20
+```
+### 3) Show top 5 highest scoring query files (e.g. transcript) for each index file (e.g. transcription factors), ranked by combo_score:
+```bash
+./stats_giggle.py -i "cr-module_transcript_results/" --by filename
+```
 
 Example Summary Statistics:
 ------

@@ -269,7 +269,21 @@ chrX:15200000-15800000/giggle_files
 Each directory within the "giggle_files" directory tree corresponds to the different levels (e.g. repeat class, family, or name) or preferred labels (e.g. gene name or transcript name) available within the annotated bed files.  
 As such, countless permutations of index and query files can be generated and applied by the GIGGLE tool. Detailed instructions and examples of how to run GIGGLE independently are available at https://github.com/ryanlayer/giggle.  
 Additional scripts were created to rename the genomic elements in a file before running GIGGLE, resulting in tabular outputs and plots labelled with more meaningful identifiers.  
-- rename_bed.py:
+
+- **Download and rename ENCODE Transcription Factor ChIP-seq Data**: rename_encode.py  
+
+   **Sample call:**  
+   mkdir data
+   python ./rename_encode.py download.txt data  
+   mkdir sort  
+   bash $GIGGLE_ROOT/scripts/sort_bed "data/*.gz" sort/ > /dev/null  
+   
+   **Sample .txt file:**
+   ATF2_(SC-81188)	wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878Atf2sc81188V0422111UniPk.narrowPeak.gz  
+   ATF3		wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878Atf3Pcr1xUniPk.narrowPeak.gz  
+   BATF		wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878BatfPcr1xUniPk.narrowPeak.gz  
+
+- rename_bed.py: This script renames 
 
    **Sample call:**  
    mkdir split  

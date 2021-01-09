@@ -271,10 +271,10 @@ As such, countless permutations of index and query files can be generated and ap
 Additional scripts were created to rename the genomic elements in a file before running GIGGLE, resulting in tabular outputs and plots labelled with more meaningful identifiers.  
 - rename_bed.py:
 
- **Sample call:**  
- mkdir split  
- python ./rename_bed.py names.txt split -a all.bed
-
+   **Sample call:**  
+   mkdir split  
+   python ./rename_bed.py names.txt split -a all.bed  
+   
 ## Sample independent GIGGLE calls:
 ```bash
 mkdir split_sort

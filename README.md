@@ -273,12 +273,12 @@ Additional scripts were created to rename the genomic elements in a file before 
 - **Download and rename ENCODE Transcription Factor ChIP-seq Data**: rename_encode.py  
 
    **Sample call:**  
-   mkdir data
+   mkdir data  
    python ./rename_encode.py download.txt data  
    mkdir sort  
    bash $GIGGLE_ROOT/scripts/sort_bed "data/*.gz" sort/ > /dev/null  
    
-   **Sample .txt file:**
+   **Sample .txt file:**  
    ATF2_(SC-81188)	wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878Atf2sc81188V0422111UniPk.narrowPeak.gz  
    ATF3		wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878Atf3Pcr1xUniPk.narrowPeak.gz  
    BATF		wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878BatfPcr1xUniPk.narrowPeak.gz  

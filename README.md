@@ -288,8 +288,16 @@ Additional scripts were created to rename the genomic elements in a file before 
    **Sample call:**  
    mkdir split  
    python ./rename.py names.txt split -a all.bed  
+   
    mkdir split_sort  
    bash $GIGGLE_ROOT/scripts/sort_bed "split/*.bed" split_sort/ > /dev/null  
+   $GIGGLE_ROOT/bin/giggle index -i "split_sort/*gz" -o split_sort_b -f -s 2> /dev/null  
+   
+   mkdir all_split  
+   cp all.bed all_split/all.bed  
+   mkdir all_split_sort  
+   bash $GIGGLE_ROOT/scripts/sort_bed "all_split/*.bed" all_split_sort/ > /dev/null  
+   $GIGGLE_ROOT/bin/giggle index -i "all_split_sort/*gz" -o all_split_sort_b -f -s 2> /dev/null
    
    **Sample .txt file:**  
    chrX:73071838..73071849,-	XIST  

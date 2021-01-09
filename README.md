@@ -270,11 +270,11 @@ Each directory within the "giggle_files" directory tree corresponds to the diffe
 As such, countless permutations of index and query files can be generated and applied by the GIGGLE tool. Detailed instructions and examples of how to run GIGGLE independently are available at https://github.com/ryanlayer/giggle.  
 Additional scripts were created to rename the genomic elements in a file before running GIGGLE, resulting in tabular outputs and plots labelled with more meaningful identifiers.  
 
-- **Download and rename ENCODE Transcription Factor ChIP-seq Data**: rename_encode.py  
+- **Download and rename ENCODE Transcription Factor ChIP-seq Data**: download.py  
 
    **Sample call:**  
    mkdir data  
-   python ./rename_encode.py download.txt data  
+   python ./download.py download.txt data  
    mkdir sort  
    bash $GIGGLE_ROOT/scripts/sort_bed "data/*.gz" sort/ > /dev/null  
    
@@ -283,11 +283,17 @@ Additional scripts were created to rename the genomic elements in a file before 
    ATF3		wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878Atf3Pcr1xUniPk.narrowPeak.gz  
    BATF		wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878BatfPcr1xUniPk.narrowPeak.gz  
 
-- rename_bed.py: This script renames 
+- **Create .bed file from FANTOM5 Robust CAGE Peaks Data:** rename.py
 
    **Sample call:**  
    mkdir split  
-   python ./rename_bed.py names.txt split -a all.bed  
+   python ./rename.py names.txt split -a all.bed  
+   
+   **Sample .txt file:**  
+   chrX:73071838..73071849,-	XIST  
+   chrX:47053208..47053241,+	UBA1  
+   chrX:16737699..16737708,+	SYAP1  
+   chrX:73040494..73040497,+	TSIX  
    
 ## Sample independent GIGGLE calls:
 ```bash

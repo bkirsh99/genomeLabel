@@ -275,8 +275,8 @@ Additional scripts were created to rename the genomic elements in a file before 
    **Sample call:**  
    mkdir data  
    python ./download.py download.txt data  
-   mkdir sort  
-   bash $GIGGLE_ROOT/scripts/sort_bed "data/*.gz" sort/ > /dev/null  
+   mkdir split_sort  
+   bash $GIGGLE_ROOT/scripts/sort_bed "data/*.gz" split_sort/ > /dev/null  
    
    **Sample .txt file:**  
    ATF2_(SC-81188)	wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878Atf2sc81188V0422111UniPk.narrowPeak.gz  
@@ -288,6 +288,8 @@ Additional scripts were created to rename the genomic elements in a file before 
    **Sample call:**  
    mkdir split  
    python ./rename.py names.txt split -a all.bed  
+   mkdir split_sort  
+   bash $GIGGLE_ROOT/scripts/sort_bed "split/*.bed" split_sort/ > /dev/null  
    
    **Sample .txt file:**  
    chrX:73071838..73071849,-	XIST  

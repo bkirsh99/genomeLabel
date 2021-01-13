@@ -274,11 +274,12 @@ Additional scripts were created to rename the genomic elements in a file before 
 - **Download and rename ENCODE Transcription Factor ChIP-seq Data**: download.py  
 
    **Sample call:**  
+   ```bash
    mkdir data  
    python ./download.py download.txt data  
    mkdir split_sort  
    bash $GIGGLE_ROOT/scripts/sort_bed "data/*.gz" split_sort/ > /dev/null  
-   
+   ```
    **Sample .txt file:**  
    ATF2_(SC-81188)	wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878Atf2sc81188V0422111UniPk.narrowPeak.gz  
    ATF3		wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878Atf3Pcr1xUniPk.narrowPeak.gz  
@@ -287,6 +288,7 @@ Additional scripts were created to rename the genomic elements in a file before 
 - **Create .bed file from FANTOM5 Robust CAGE Peaks Data:** rename.py
 
    **Sample call:**  
+   ```bash
    mkdir split  
    python ./rename.py names.txt split -a all.bed  
    
@@ -299,7 +301,7 @@ Additional scripts were created to rename the genomic elements in a file before 
    mkdir all_split_sort  
    bash $GIGGLE_ROOT/scripts/sort_bed "all_split/*.bed" all_split_sort/ > /dev/null  
    $GIGGLE_ROOT/bin/giggle index -i "all_split_sort/*gz" -o all_split_sort_b -f -s 2> /dev/null
-   
+   ```
    **Sample .txt file:**  
    chrX:73071838..73071849,-	XIST  
    chrX:47053208..47053241,+	UBA1  

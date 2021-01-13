@@ -280,7 +280,7 @@ Additional scripts were created to rename the genomic elements in a file before 
    mkdir split_sort  
    bash $GIGGLE_ROOT/scripts/sort_bed "data/*.gz" split_sort/ > /dev/null  
    ```
-   **Sample .txt file:**  
+   **Sample .txt file (available under *test/ENCODE.txt*):**  
    ATF2_(SC-81188)	wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878Atf2sc81188V0422111UniPk.narrowPeak.gz  
    ATF3		wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878Atf3Pcr1xUniPk.narrowPeak.gz  
    BATF		wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsHaibGm12878BatfPcr1xUniPk.narrowPeak.gz  
@@ -302,7 +302,7 @@ Additional scripts were created to rename the genomic elements in a file before 
    bash $GIGGLE_ROOT/scripts/sort_bed "all_split/*.bed" all_split_sort/ > /dev/null  
    $GIGGLE_ROOT/bin/giggle index -i "all_split_sort/*gz" -o all_split_sort_b -f -s 2> /dev/null
    ```
-   **Sample .txt file:**  
+   **Sample .txt file (available under *test/FANTOM5.txt*):**  
    chrX:73071838..73071849,-	XIST  
    chrX:47053208..47053241,+	UBA1  
    chrX:16737699..16737708,+	SYAP1  

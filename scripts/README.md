@@ -18,8 +18,7 @@ This document outlines how to call the scripts created for genomeLabel. Previous
 |verify.py|./verify.py -i "split_sort/*" -q "giggle_results/*" -o verify.txt -m names.txt|
 |download.py|python ./download.py download.txt data|
 |read_excel.py|python ./read_excel.py workbook1.xlsx workbook2.xlsx filter.txt -r "sheet_from1" -m "sheet_from2"<br>For example:<br>python ./read_excel.py 41598_2016_BFsrep37324_MOESM2_ESM.xls xi-dna-elements-list.xlsx names.txt -r "S3_TableA. chrX" -m "confident inactive genes"|
-|run_giggle_v1.py|python ./read_genomeLabel.py labels results -i index_label -q query_label|
-|run_giggle.py|
-|intersect.py|--bd b_sort/ --af a.bed --of output_file.bed --od output_directory|
-
+|run_giggle_v1.py|python ./run_giggle_v1.py labels results -i index_label -q query_label|
+|intersect.py|./intersect.py --bd b_sort/ --af a.bed --of output_file.bed --od output_directory|
+|stats.py|./stats.py -i "giggle_results/" --stat combo_score -o "clustermap.png" --x_size 60 --y_size 40 --highlight "PRKX,HDHD1,STS,PNPLA4,FAM9C,RAB9A,GEMIN8,TMEM27,CA5BP1,CA5B,ZRSR2,AP1S2,S100G,SYAP1,EIF1AX,CXorf38,DDX3X,EFHC2,FUNDC1,KDM6A,UBA1,INE1,KDM5C,IQSEC2,JPX"|
 
